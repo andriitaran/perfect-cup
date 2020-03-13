@@ -1,0 +1,17 @@
+.welcome {
+  &-container {
+    padding: 24px;
+    width: 414px;
+    height: 736px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    &__logo {
+      height: 200px;
+    }
+    &__header {
+      @include header(64px, 64px);
+    }
+  }
+}

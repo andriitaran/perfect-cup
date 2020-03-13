@@ -1,0 +1,20 @@
+//GLOBAL STYLING
+
+@import "../styles/partials/reset";
+@import "../styles/partials/breakpoints";
+@import "../styles/partials/colors";
+@import "../styles/partials/typography";
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+//APP STYLING
+@import "../styles/partials/navigation";
+@import "../styles/partials/welcome";
+@import "../styles/partials/profile";
+@import "../styles/partials/selection";
+@import "../styles/partials/pourover";
+@import "../styles/partials/frenchpress";
+@import "../styles/partials/brew";

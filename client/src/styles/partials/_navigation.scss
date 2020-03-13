@@ -1,0 +1,25 @@
+.navigation {
+  width: 100%;
+  height: 60px;
+  background: lightgrey;;
+  position: fixed;
+  &__buttons {
+    display: flex;
+    &--prepare,
+    &--profile,
+    &--discover {
+      width: 138px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      & img {
+        margin-top: 10px;
+        height: 30px;
+      }
+      & span {
+        @include text(16px, 20px);
+      }
+    }
+  }
+}

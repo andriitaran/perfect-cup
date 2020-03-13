@@ -1,0 +1,116 @@
+.pourover {
+  &-container {
+    padding: 36px 24px 24px 24px;
+    width: 414px;
+    height: 676px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    &__close {
+      height: 40px;
+      position: absolute;
+      left: 16px;
+      top: 36px;
+    }
+    &__circle {
+      margin-top: 60px;
+      min-height: 200px;
+      min-width: 200px;
+      background: lightgrey;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &--img {
+        height: 140px;
+      }
+    }
+
+    &__tap-text {
+      margin-top: 30px;
+      margin-bottom: 30px;
+      @include subheader(16px, 20px);
+    }
+    &__selection {
+      width: 100%;
+      height: 140px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      align-items: center;
+      &--grind,
+      &--coffee,
+      &--water {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+        width: 100px;
+        background: lightgrey;
+        border-radius: 50%;
+      }
+      &--coffee__select {
+        display: none;
+      }
+    }
+    &__placeholders {
+      margin-top: 20px;
+      width: 100%;
+      display: flex;
+      & span {
+        @include text(16px, 20px);
+        width: 120px;
+        display: flex;
+        justify-content: center;
+      }
+    }
+    &__steps {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 700px;
+      overflow: scroll;
+      align-items: center;
+
+      &--header {
+        @include subheader(16px, 20px);
+        margin-top: 20px;
+      }
+      &--instructions {
+        padding: 0;
+        @include text(16px, 20px);
+
+        list-style-type: none;
+        & li {
+          margin-bottom: 16px;
+        }
+      }
+    }
+    &__brewing {
+      opacity: 0;
+      transition: transform 1s;
+      position: absolute;
+      height: 350px;
+      width: 100%;
+      bottom: 0;
+      transform: translateY(100%);
+      &.active {
+        opacity: 1;
+        transform: translateY(0);
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        background: lightgrey;
+        border-top-right-radius: 40px;
+        border-top-left-radius: 40px;
+        padding: 20px 20px;
+        & span {
+          margin-top: 100px;
+          @include subheader(18px, 24px);
+        }
+      }
+    }
+  }
+}
