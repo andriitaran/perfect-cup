@@ -6,6 +6,11 @@ import Select from "@material-ui/core/Select";
 import PourOverLogo from "../assets/images/498476-coffee/svg/010-coffee-pot-1.svg";
 import Back from "../assets/images/back.svg";
 
+import "react-circular-progressbar/dist/styles.css";
+import { easeLinear } from "d3-ease";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import AnimatedProgressProvider from "./AnimatedProgressProvider";
+
 export default class PourOver extends Component {
   state = {
     waterAmount: 220, // choose 220ml, 300ml or 350ml
@@ -14,25 +19,31 @@ export default class PourOver extends Component {
     waterActive: false,
     brewingActive: false,
     brewingSteps: [],
-    brewingStep: ""
+    brewingStep: "",
+    brewingStepDuration: 0,
+    renderProgress: false
   };
 
   setSteps = () => {
-    const step1 = `Put 
+    const step0 = "";
+    const step1 = "Let's brew some coffee!";
+    const step2 = `Put 
     ${this.coffeeAmount()} g
     of coffee into filter`;
-    const step2 = `Pour ${this.bloom()}g of water until all the grounds are evenly saturated`;
-    const step3 = "Wait 30 seconds for coffee to “bloom”";
-    const step4 = `Pour remaining ${this.remainingWaterAmount()}g of water in circular motion`;
-    const step5 = "Give brewer a gentle swirl";
-    const step6 = "Let the water drain through and serve";
+    const step3 = `Pour ${this.bloom()}g of water until all the grounds are evenly saturated`;
+    const step4 = "Wait 30 seconds for coffee to “bloom”";
+    const step5 = `Pour remaining ${this.remainingWaterAmount()}g of water in circular motion`;
+    const step6 = "Give brewer a gentle swirl";
+    const step7 = "Let the water drain through and serve";
     const arr = [
-      { text: step1, time: 1000 },
-      { text: step2, time: 3000 },
-      { text: step3, time: 3000 },
-      { text: step4, time: 3000 },
-      { text: step5, time: 3000 },
-      { text: step6, time: 3000 }
+      { text: step0, time: 0 },
+      { text: step1, time: 6000 },
+      { text: step2, time: 7000 },
+      { text: step3, time: 8000 },
+      { text: step4, time: 9000 },
+      { text: step5, time: 7000 },
+      { text: step6, time: 6000 },
+      { text: step7, time: 6000 }
     ];
 
     this.setState(
@@ -47,13 +58,20 @@ export default class PourOver extends Component {
     let stepNum = 0;
     let timer;
     let run = () => {
+      // if (this.state.renderProgress) {
+      //   this.setState({
+      //     renderProgress: false
+      //   });
+      // }
       if (stepNum < this.state.brewingSteps.length) {
         timer = setTimeout(() => {
           this.setState({
-            brewingStep: this.state.brewingSteps[stepNum].text
+            brewingStep: this.state.brewingSteps[stepNum].text,
+            brewingStepDuration: this.state.brewingSteps[stepNum].time,
+            renderProgress: true
           });
-          stepNum++;
           run();
+          stepNum++;
         }, this.state.brewingSteps[stepNum].time);
       } else {
         clearTimeout(timer);
@@ -108,6 +126,16 @@ export default class PourOver extends Component {
 
   render() {
     let activeClass;
+    let duration = this.state.brewingStepDuration / 1000;
+    let timer;
+
+    function countdown() {
+      timer = duration + "s";
+      if (duration-- > 0) setTimeout(countdown, 1000);
+    }
+
+    countdown();
+
     this.state.brewingActive ? (activeClass = "active") : (activeClass = "");
     return (
       <section className="pourover">
@@ -115,9 +143,30 @@ export default class PourOver extends Component {
           <Link to="/">
             <img className="pourover-container__close" src={Back} alt="back" />
           </Link>
+
           <div className="pourover-container__circle" onClick={this.setSteps}>
+            {this.state.renderProgress && (
+              <AnimatedProgressProvider
+                valueStart={0}
+                valueEnd={100}
+                duration={duration}
+                easingFunction={easeLinear}
+              >
+                {value => {
+                  const roundedValue = Math.round(value);
+                  return (
+                    <CircularProgressbar
+                      value={value}
+                      text={`${timer}`}
+                      styles={buildStyles({ pathTransition: "none" })}
+                    ></CircularProgressbar>
+                  );
+                }}
+              </AnimatedProgressProvider>
+            )}
+
             <img
-              className="pourover-container__circle--img"
+              className={`pourover-container__circle--img ${activeClass}`}
               src={PourOverLogo}
               alt="pour over"
             />

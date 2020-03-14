@@ -25,6 +25,9 @@
       align-items: center;
       &--img {
         height: 140px;
+        &.active {
+          display: none;
+        }
       }
     }
 
@@ -92,12 +95,13 @@
       opacity: 0;
       transition: transform 1s;
       position: absolute;
-      height: 350px;
+      height: 0px;
       width: 100%;
       bottom: 0;
       transform: translateY(100%);
       &.active {
         opacity: 1;
+        height: 350px;
         transform: translateY(0);
         display: flex;
         justify-content: center;
@@ -108,9 +112,14 @@
         padding: 20px 20px;
         & span {
           margin-top: 100px;
-          @include subheader(18px, 24px);
+          @include subheader(24px, 30px);
         }
       }
     }
   }
+}
+
+.CircularProgressbar {
+  max-height: 200px;
+  max-width: 200px;
 }
