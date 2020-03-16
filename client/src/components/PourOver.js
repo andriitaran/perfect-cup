@@ -149,6 +149,8 @@ export default class PourOver extends Component {
               <AnimatedProgressProvider
                 valueStart={0}
                 valueEnd={100}
+                // minValue={0}
+                // maxValue={duration}
                 duration={duration}
                 easingFunction={easeLinear}
               >
