@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Prepare from "../assets/icons/prepare_grey.svg";
 import Profile from "../assets/icons/profile_grey.svg";
 import Discover from "../assets/icons/discover_grey.svg";
@@ -10,24 +10,24 @@ export default class Navigation extends Component {
       <section className="navigation">
         <div className="navigation__container">
           <div className="navigation__buttons">
-            <Link to="/prepare">
+            <NavLink to="/prepare">
               <div className="navigation__buttons--prepare">
-                <img src={Prepare} alt="prepare" />
+                <div className="navigation__buttons--prepare-img"></div>
                 <span>Prepare</span>
               </div>
-            </Link>
-            <Link to="/profile">
+            </NavLink>
+            <NavLink to="/profile">
               <div className="navigation__buttons--profile">
-                <img src={Profile} alt="my profile" />
+                <div className="navigation__buttons--profile-img"></div>
                 <span>Profile</span>
               </div>
-            </Link>
-            <Link to="/discover">
+            </NavLink>
+            <NavLink to="/discover">
               <div className="navigation__buttons--discover">
-                <img src={Discover} alt="discover" />
+                <div className="navigation__buttons--discover-img"></div>
                 <span>Discover</span>
               </div>
-            </Link>
+            </NavLink>
           </div>
         </div>
       </section>

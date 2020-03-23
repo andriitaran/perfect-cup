@@ -34,11 +34,6 @@ export default class Welcome extends Component {
           </video>
           {this.state.renderLogo && (
             <>
-              <img
-                className="welcome-container__logo"
-                src={PerfectCup}
-                alt="perfect cup"
-              />
               <span className="welcome-container__header">Perfect Cup</span>
             </>
           )}

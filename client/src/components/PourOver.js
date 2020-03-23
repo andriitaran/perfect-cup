@@ -42,13 +42,13 @@ export default class PourOver extends Component {
     const step6 = "Give brewer a gentle swirl";
     const step7 = "Let the water drain through and serve";
     const arr = [
-      { text: step1, time: 3000 },
-      { text: step2, time: 3000 },
-      { text: step3, time: 3000 },
-      { text: step4, time: 3000 },
-      { text: step5, time: 3000 },
-      { text: step6, time: 3000 },
-      { text: step7, time: 3000 }
+      { text: step1, time: 1000 },
+      { text: step2, time: 1000 },
+      { text: step3, time: 1000 },
+      { text: step4, time: 1000 },
+      { text: step5, time: 1000 },
+      { text: step6, time: 1000 },
+      { text: step7, time: 1000 }
     ];
 
     this.setState(
@@ -239,8 +239,17 @@ export default class PourOver extends Component {
 
   render() {
     let activeClass;
+
+    function millisToMinutesAndSeconds(millis) {
+      var minutes = Math.floor(millis / 60000);
+      var seconds = ((millis % 60000) / 1000).toFixed(0);
+      return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+    }
+
     let duration = this.state.brewingStepDuration / 1000;
-    let counter = "0:0" + (duration - 1);
+    let counter = millisToMinutesAndSeconds(
+      this.state.brewingStepDuration - 1000
+    );
 
     let countdown = () =>
       setInterval(() => {
@@ -309,88 +318,110 @@ export default class PourOver extends Component {
             />
           </div>
 
-          <span className="pourover-container__tap-text">
-            TAP TO CHANGE DOSE
-          </span>
-
-          <section className="pourover-container__selection">
-            <div className="pourover-container__selection--grind">
-              <span>Medium</span>
-            </div>
-
-            <div className="pourover-container__selection--coffee">
-              <FormControl
-                style={{
-                  display: this.state.coffeeActive ? "block" : "none"
-                }}
-              >
-                <Select
-                  value={this.state.ratio}
-                  onChange={this.handleChangeRatio}
-                >
-                  <MenuItem value={16}>1:16</MenuItem>
-                  <MenuItem value={17}>1:17</MenuItem>
-                  <MenuItem value={18}>1:18</MenuItem>
-                </Select>
-              </FormControl>
+          {!this.state.feedback ? (
+            <>
               <span
-                style={{
-                  display: this.state.coffeeActive ? "none" : "block"
-                }}
-                onClick={this.handleActiveCoffee}
+                className={`pourover-container__tap-text ${
+                  this.state.animating === true ? activeClass : ""
+                }`}
               >
-                {this.coffeeAmount()}g
+                TAP TO CHANGE DOSE
               </span>
-            </div>
 
-            <div className="pourover-container__selection--water">
-              <FormControl
-                style={{
-                  display: this.state.waterActive ? "block" : "none"
-                }}
+              <section
+                className={`pourover-container__selection ${
+                  this.state.animating === true ? activeClass : ""
+                }`}
               >
-                <Select
-                  value={this.state.waterAmount}
-                  onChange={this.handleChangeWaterAmount}
-                >
-                  <MenuItem value={220}>220g</MenuItem>
-                  <MenuItem value={300}>300g</MenuItem>
-                  <MenuItem value={350}>350g</MenuItem>
-                </Select>
-              </FormControl>
+                <div className="pourover-container__selection--grind">
+                  <span>Medium</span>
+                </div>
+
+                <div className="pourover-container__selection--coffee">
+                  <FormControl
+                    style={{
+                      display: this.state.coffeeActive ? "block" : "none"
+                    }}
+                  >
+                    <Select
+                      value={this.state.ratio}
+                      onChange={this.handleChangeRatio}
+                    >
+                      <MenuItem value={16}>1:16</MenuItem>
+                      <MenuItem value={17}>1:17</MenuItem>
+                      <MenuItem value={18}>1:18</MenuItem>
+                    </Select>
+                  </FormControl>
+                  <span
+                    style={{
+                      display: this.state.coffeeActive ? "none" : "block"
+                    }}
+                    onClick={this.handleActiveCoffee}
+                  >
+                    {this.coffeeAmount()}g
+                  </span>
+                </div>
+
+                <div className="pourover-container__selection--water">
+                  <FormControl
+                    style={{
+                      display: this.state.waterActive ? "block" : "none"
+                    }}
+                  >
+                    <Select
+                      value={this.state.waterAmount}
+                      onChange={this.handleChangeWaterAmount}
+                    >
+                      <MenuItem value={220}>220g</MenuItem>
+                      <MenuItem value={300}>300g</MenuItem>
+                      <MenuItem value={350}>350g</MenuItem>
+                    </Select>
+                  </FormControl>
+                  <span
+                    style={{
+                      display: this.state.waterActive ? "none" : "block"
+                    }}
+                    onClick={this.handleActiveWater}
+                  >
+                    {this.state.waterAmount}g
+                  </span>
+                </div>
+                <div className="pourover-container__placeholders">
+                  <span>Grind Size</span>
+                  <span>Ground Coffee</span>
+                  <span>Water</span>
+                </div>
+              </section>
               <span
-                style={{
-                  display: this.state.waterActive ? "none" : "block"
-                }}
-                onClick={this.handleActiveWater}
+                className={`pourover-container__steps--header ${
+                  this.state.animating === true ? activeClass : ""
+                }`}
               >
-                {this.state.waterAmount}g
+                STEPS
               </span>
-            </div>
-            <div className="pourover-container__placeholders">
-              <span>Grind Size</span>
-              <span>Ground Coffee</span>
-              <span>Water</span>
-            </div>
-          </section>
 
-          <span className="pourover-container__steps--header">STEPS</span>
-          <div className="pourover-container__steps">
-            <ul className="pourover-container__steps--instructions">
-              <li>{`Put ${this.coffeeAmount()} g of coffee into filter`}</li>
-              <li>{`Pour ${this.bloom()}g of water until all the
+              <div className="pourover-container__steps">
+                <ul className="pourover-container__steps--instructions">
+                  <li>{`Put ${this.coffeeAmount()} g of coffee into filter`}</li>
+                  <li>{`Pour ${this.bloom()}g of water until all the
               grounds are evenly saturated`}</li>
-              <li>Wait 30 seconds for coffee to “bloom</li>
-              <li>{`Pour remaining ${this.remainingWaterAmount()}g
+                  <li>Wait 30 seconds for coffee to “bloom</li>
+                  <li>{`Pour remaining ${this.remainingWaterAmount()}g
               of water in circular motion`}</li>
-              <li>Give brewer a gentle swirl</li>
-              <li>Let the water drain through and serve</li>
-            </ul>
-          </div>
+                  <li>Give brewer a gentle swirl</li>
+                  <li>Let the water drain through and serve</li>
+                </ul>
+              </div>
+            </>
+          ) : (
+            <section className="sizing"></section>
+          )}
 
           <section className={`pourover-container__brewing ${activeClass}`}>
             {!this.state.feedback ? (
-              <span>{this.state.brewingStep}</span>
+              <span className="pourover-container__brewing--steps">
+                {this.state.brewingStep}
+              </span>
             ) : (
               <form className="feedback-pourover" onSubmit={this.handleSubmit}>
                 <span className="feedback-pourover__header">

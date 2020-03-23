@@ -12,7 +12,7 @@ export default class Selection extends Component {
           <span className="selection-container__header">
             Choose Brewing Method
           </span>
-          <Link to="/pourover">
+          <Link to="/prepare/pourover">
             <div className="selection-container__pourover">
               <img
                 className="selection-container__pourover--img"
@@ -24,7 +24,7 @@ export default class Selection extends Component {
               </span>
             </div>
           </Link>
-          <Link to="/frenchpress">
+          <Link to="/prepare/frenchpress">
             <div className="selection-container__frenchpress">
               <img
                 className="selection-container__frenchpress--img"

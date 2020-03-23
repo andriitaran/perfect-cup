@@ -9,7 +9,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     &__header {
-      @include header(36px, 36px);
+      @include header(36px, 40px);
       width: 100%;
       color: $black;
     }

@@ -34,6 +34,10 @@ a {
   color: #333333;
 }
 
+.navigation .active span {
+  color: orange;
+}
+
 .navigation__container {
   margin: 0 auto;
   width: 414px;
@@ -65,9 +69,10 @@ a {
           align-items: center;
 }
 
-.navigation__buttons--prepare img, .navigation__buttons--profile img, .navigation__buttons--discover img {
+.navigation__buttons--prepare-img, .navigation__buttons--profile-img, .navigation__buttons--discover-img {
   margin-top: 10px;
   height: 24px;
+  width: 24px;
 }
 
 .navigation__buttons--prepare span, .navigation__buttons--profile span, .navigation__buttons--discover span {
@@ -77,8 +82,28 @@ a {
   color: #d3d3d3;
 }
 
-.navigation__buttons.active {
-  color: orange;
+.navigation__buttons--prepare-img {
+  background: url(../assets/icons/prepare_grey.svg);
+}
+
+.navigation__buttons--profile-img {
+  background: url(../assets/icons/profile_grey.svg);
+}
+
+.navigation__buttons--discover-img {
+  background: url(../assets/icons/discover_grey.svg);
+}
+
+.active .navigation__buttons--prepare-img {
+  background: url(../assets/icons/prepare_orange.svg);
+}
+
+.active .navigation__buttons--profile-img {
+  background: url(../assets/icons/profile_orange.svg);
+}
+
+.active .navigation__buttons--discover-img {
+  background: url(../assets/icons/discover_orange.svg);
 }
 
 .welcome {
@@ -125,9 +150,10 @@ a {
 }
 
 .welcome-container__header {
-  font-family: "Permanent Marker", cursive;
+  font-family: Avenir Bold;
   font-size: 64px;
-  bottom: 300px;
+  line-height: 40px;
+  top: 250px;
   -webkit-animation: fadein 4s;
           animation: fadein 4s;
   color: white;
@@ -328,7 +354,7 @@ a {
 .selection-container__header {
   font-family: Avenir Bold;
   font-size: 36px;
-  line-height: 36px;
+  line-height: 40px;
   width: 100%;
   color: #333333;
 }
@@ -436,6 +462,10 @@ a {
   line-height: 20px;
 }
 
+.pourover-container__tap-text.active {
+  opacity: 0;
+}
+
 .pourover-container__selection {
   width: 100%;
   height: 140px;
@@ -450,6 +480,10 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.pourover-container__selection.active {
+  opacity: 0;
 }
 
 .pourover-container__selection--grind, .pourover-container__selection--coffee, .pourover-container__selection--water {
@@ -517,7 +551,12 @@ a {
   margin-bottom: 20px;
 }
 
+.pourover-container__steps--header.active {
+  opacity: 0;
+}
+
 .pourover-container__steps--instructions {
+  margin-top: 0px;
   padding: 0;
   font-family: Avenir Regular;
   font-size: 16px;
@@ -527,6 +566,7 @@ a {
 
 .pourover-container__steps--instructions li {
   margin-bottom: 16px;
+  text-align: center;
 }
 
 .pourover-container__brewing {
@@ -543,9 +583,18 @@ a {
           transform: translateY(100%);
 }
 
+.pourover-container__brewing--steps {
+  margin: 120px 0;
+  font-family: Avenir Demi Bold;
+  font-size: 24px;
+  line-height: 30px;
+  color: #d3d3d3;
+  text-align: center;
+}
+
 .pourover-container__brewing.active {
   opacity: 1;
-  height: 350px;
+  height: 300px;
   -webkit-transform: translateY(0);
           transform: translateY(0);
   display: -webkit-box;
@@ -561,14 +610,6 @@ a {
   border-top-right-radius: 40px;
   border-top-left-radius: 40px;
   padding: 20px 20px;
-}
-
-.pourover-container__brewing.active span {
-  margin: 50px 0;
-  font-family: Avenir Demi Bold;
-  font-size: 24px;
-  line-height: 30px;
-  color: #d3d3d3;
 }
 
 .CircularProgressbar {
@@ -588,7 +629,12 @@ a {
 }
 
 .feedback-pourover__header {
-  margin: 50px 0;
+  font-family: Avenir Demi Bold;
+  font-size: 24px;
+  line-height: 30px;
+  color: #d3d3d3;
+  text-align: center;
+  margin: 30px 0;
 }
 
 .feedback-pourover__bitter, .feedback-pourover__strong, .feedback-pourover__weak, .feedback-pourover__perfect, .feedback-pourover__save {
@@ -610,6 +656,19 @@ a {
 
 .feedback-pourover__bitter:focus, .feedback-pourover__strong:focus, .feedback-pourover__weak:focus, .feedback-pourover__perfect:focus, .feedback-pourover__save:focus {
   outline: none;
+}
+
+.sizing {
+  height: 400px;
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 .frenchpress-container {

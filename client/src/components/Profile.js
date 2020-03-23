@@ -19,9 +19,10 @@ export default class Profile extends Component {
       url: `http://localhost:5000/data`,
       headers: { "Access-Control-Allow-Origin": "*" }
     }).then(res => {
-      console.log(res.data);
+      let brewData = res.data;
+      brewData.sort((a, b) => (b.date > a.date ? 1 : a.date > b.date ? -1 : 0));
       this.setState({
-        brews: res.data,
+        brews: brewData,
         loading: true
       });
     });

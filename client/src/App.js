@@ -61,7 +61,7 @@ export default class App extends Component {
             )}
           />
           <Route
-            path="/pourover"
+            path="/prepare/pourover"
             render={props => (
               <>
                 <PourOver />
@@ -70,7 +70,7 @@ export default class App extends Component {
             )}
           />
           <Route
-            path="/frenchpress"
+            path="/prepare/frenchpress"
             render={props => (
               <>
                 <FrenchPress />
