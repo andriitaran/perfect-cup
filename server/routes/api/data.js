@@ -8,30 +8,48 @@ const data = require(dataFile);
 //route for getting data
 router.get("/", (req, res) => {
   return res.send(
-    data.map(element => {
-      return (element = {
-        id: element.id,
-        date: element.date,
-        timestamp: element.timestamp,
-        method: element.method,
-        ratio: element.ratio,
-        grind: element.grind,
-        coffee: element.coffee,
-        water: element.water,
-        notes: element.notes,
-        reccomendations: element.reccomendations
+    data.map(brewData => {
+      return (brewData = {
+        id: brewData.id,
+        date: brewData.date,
+        method: brewData.method,
+        ratio: brewData.ratio,
+        grind: brewData.grind,
+        coffee: brewData.coffee,
+        water: brewData.water,
+        notes: brewData.notes
       });
     })
   );
 });
 
-//add element route
+//add brewData route
 router.post("/", (req, res) => {
-  const newElement = {
+  let notes = "";
+  if (req.body.notes.bitter && req.body.notes.strong) {
+    notes = "Coffee was too strong & bitter";
+  } else if (req.body.notes.bitter) {
+    notes = "Coffee was bitter";
+  } else if (req.body.notes.strong) {
+    notes = "Coffee was too strong";
+  } else if (req.body.notes.weak) {
+    notes = "Coffee was too weak";
+  } else if (req.body.notes.perfect) {
+    notes = "Coffee was PERFECT!";
+  } else {
+    notes = "You didn't provide any feedback";
+  }
+
+  const newBrewData = {
     id: req.body.id,
-    name: req.body.name
+    date: req.body.date,
+    method: req.body.method,
+    ratio: req.body.ratio,
+    grind: req.body.grind,
+    coffee: req.body.coffee,
+    water: req.body.water
   };
-  data.push(newElement); //pushes new element into an existing array
+  data.push(newBrewData); //pushes new brewData into an existing array
   helper.writeJSONFile(dataFile, data); //writes new array of elements to JSON
   res.json(data); //return a new array of elements
 });

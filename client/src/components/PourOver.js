@@ -2,10 +2,12 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
+import uuid from "uuid";
+import axios from "axios";
+import Button from "@material-ui/core/Button";
 import Select from "@material-ui/core/Select";
 import PourOverLogo from "../assets/images/498476-coffee/svg/010-coffee-pot-1.svg";
 import Back from "../assets/images/back.svg";
-
 import "react-circular-progressbar/dist/styles.css";
 import { easeLinear } from "d3-ease";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
@@ -21,11 +23,15 @@ export default class PourOver extends Component {
     brewingSteps: [],
     brewingStep: "",
     brewingStepDuration: 0,
-    renderProgress: false
+    animating: false,
+    feedback: false,
+    strong: false,
+    weak: false,
+    bitter: false,
+    perfect: false
   };
 
   setSteps = () => {
-    const step0 = "";
     const step1 = "Let's brew some coffee!";
     const step2 = `Put 
     ${this.coffeeAmount()} g
@@ -36,14 +42,13 @@ export default class PourOver extends Component {
     const step6 = "Give brewer a gentle swirl";
     const step7 = "Let the water drain through and serve";
     const arr = [
-      { text: step0, time: 0 },
-      { text: step1, time: 6000 },
-      { text: step2, time: 7000 },
-      { text: step3, time: 8000 },
-      { text: step4, time: 9000 },
-      { text: step5, time: 7000 },
-      { text: step6, time: 6000 },
-      { text: step7, time: 6000 }
+      { text: step1, time: 3000 },
+      { text: step2, time: 3000 },
+      { text: step3, time: 3000 },
+      { text: step4, time: 3000 },
+      { text: step5, time: 3000 },
+      { text: step6, time: 3000 },
+      { text: step7, time: 3000 }
     ];
 
     this.setState(
@@ -56,25 +61,28 @@ export default class PourOver extends Component {
 
   startBrew = () => {
     let stepNum = 0;
-    let timer;
+    let myTimeout;
     let run = () => {
-      // if (this.state.renderProgress) {
-      //   this.setState({
-      //     renderProgress: false
-      //   });
-      // }
       if (stepNum < this.state.brewingSteps.length) {
-        timer = setTimeout(() => {
+        this.setState({
+          animating: true,
+          brewingStep: this.state.brewingSteps[stepNum].text,
+          brewingStepDuration: this.state.brewingSteps[stepNum].time
+        });
+
+        // step timeout
+        myTimeout = setTimeout(() => {
           this.setState({
-            brewingStep: this.state.brewingSteps[stepNum].text,
-            brewingStepDuration: this.state.brewingSteps[stepNum].time,
-            renderProgress: true
+            animating: false
           });
-          run();
           stepNum++;
+          run();
         }, this.state.brewingSteps[stepNum].time);
       } else {
-        clearTimeout(timer);
+        clearTimeout(myTimeout);
+        this.setState({
+          feedback: true
+        });
       }
     };
 
@@ -118,6 +126,111 @@ export default class PourOver extends Component {
     });
   };
 
+  handleSubmit = event => {
+    event.preventDefault();
+    let brew = {
+      id: uuid(),
+      date: new Date(),
+      method: "pourover",
+      ratio: `1:${this.state.ratio}`,
+      grind: "Medium",
+      coffee: `${this.coffeeAmount()}g`,
+      water: `${this.state.waterAmount}g`,
+      notes: {
+        bitter: this.state.bitter,
+        strong: this.state.strong,
+        weak: this.state.weak,
+        perfect: this.state.perfect
+      }
+    };
+    axios({
+      method: "post",
+      url: `http://localhost:5000/data`,
+      data: {
+        id: brew.id,
+        date: brew.date,
+        method: brew.method,
+        ratio: brew.ratio,
+        grind: brew.grind,
+        coffee: brew.coffee,
+        water: brew.water,
+        notes: brew.notes
+      }
+    }).then(response => {
+      console.log("brew data was uploaded");
+      window.location.href = "/profile";
+    });
+  };
+
+  handleBitter = event => {
+    if (!this.state.bitter) {
+      this.setState({
+        bitter: true,
+        perfect: false,
+        weak: false
+      });
+    } else {
+      this.setState({
+        bitter: false
+      });
+    }
+  };
+
+  handleStrong = event => {
+    if (!this.state.strong) {
+      this.setState({
+        strong: true,
+        perfect: false,
+        weak: false
+      });
+    } else {
+      this.setState({
+        strong: false
+      });
+    }
+  };
+
+  handleWeak = event => {
+    if (!this.state.weak) {
+      this.setState({
+        weak: true,
+        strong: false,
+        bitter: false,
+        perfect: false
+      });
+    } else {
+      this.setState({
+        weak: false
+      });
+    }
+  };
+
+  handlePerfect = event => {
+    if (
+      (!this.state.perfect && this.state.strong) ||
+      this.state.bitter ||
+      this.state.weak
+    ) {
+      this.setState({
+        perfect: true,
+        strong: false,
+        bitter: false,
+        weak: false
+      });
+    } else if (!this.state.perfect) {
+      this.setState({
+        perfect: true,
+        strong: false,
+        bitter: false,
+        weak: false
+      });
+    } else {
+      this.setState({
+        perfect: false
+      });
+    }
+  };
+
   coffeeAmount = () => (this.state.waterAmount / this.state.ratio).toFixed();
 
   bloom = () => this.coffeeAmount() * 2;
@@ -127,40 +240,60 @@ export default class PourOver extends Component {
   render() {
     let activeClass;
     let duration = this.state.brewingStepDuration / 1000;
-    let timer;
+    let counter = "0:0" + (duration - 1);
 
-    function countdown() {
-      timer = duration + "s";
-      if (duration-- > 0) setTimeout(countdown, 1000);
-    }
+    let countdown = () =>
+      setInterval(() => {
+        duration--;
+        if (duration > 0 && duration < 10) {
+          counter = "0:0" + (duration - 1);
+        } else if (duration > 0 && duration <= 60) {
+          counter = "0:" + (duration - 1);
+        } else if (duration > 0 && duration > 60) {
+          counter = "01:0" + ((duration - 1) % 60);
+        } else {
+          clearInterval(duration);
+        }
+      }, 1000);
 
     countdown();
 
     this.state.brewingActive ? (activeClass = "active") : (activeClass = "");
     return (
       <section className="pourover">
-        <div className="pourover-container">
-          <Link to="/">
+        <div
+          className={`pourover-container ${
+            this.state.animating === true ? activeClass : ""
+          }`}
+        >
+          <Link to="/prepare">
             <img className="pourover-container__close" src={Back} alt="back" />
           </Link>
 
-          <div className="pourover-container__circle" onClick={this.setSteps}>
-            {this.state.renderProgress && (
+          <div
+            className={`pourover-container__circle ${
+              this.state.animating === true ? activeClass : ""
+            }`}
+            onClick={this.setSteps}
+          >
+            {this.state.animating && (
               <AnimatedProgressProvider
                 valueStart={0}
                 valueEnd={100}
-                // minValue={0}
-                // maxValue={duration}
                 duration={duration}
                 easingFunction={easeLinear}
               >
                 {value => {
-                  const roundedValue = Math.round(value);
                   return (
                     <CircularProgressbar
                       value={value}
-                      text={`${timer}`}
-                      styles={buildStyles({ pathTransition: "none" })}
+                      text={`${counter}`}
+                      styles={buildStyles({
+                        pathTransition: "none",
+                        trailColor: "333333",
+                        pathColor: "ffa64d",
+                        textColor: "d3d3d3"
+                      })}
                     ></CircularProgressbar>
                   );
                 }}
@@ -168,7 +301,9 @@ export default class PourOver extends Component {
             )}
 
             <img
-              className={`pourover-container__circle--img ${activeClass}`}
+              className={`pourover-container__circle--img ${
+                this.state.animating === true ? activeClass : ""
+              }`}
               src={PourOverLogo}
               alt="pour over"
             />
@@ -254,7 +389,54 @@ export default class PourOver extends Component {
           </div>
 
           <section className={`pourover-container__brewing ${activeClass}`}>
-            <span>{this.state.brewingStep}</span>
+            {!this.state.feedback ? (
+              <span>{this.state.brewingStep}</span>
+            ) : (
+              <form className="feedback-pourover" onSubmit={this.handleSubmit}>
+                <span className="feedback-pourover__header">
+                  How was your coffee?
+                </span>
+                <button
+                  className={`feedback-pourover__strong ${
+                    this.state.strong ? activeClass : ""
+                  }`}
+                  type="button"
+                  onClick={this.handleStrong}
+                >
+                  Strong
+                </button>
+                <button
+                  className={`feedback-pourover__weak ${
+                    this.state.weak ? activeClass : ""
+                  }`}
+                  type="button"
+                  onClick={this.handleWeak}
+                >
+                  Weak
+                </button>
+                <button
+                  className={`feedback-pourover__bitter ${
+                    this.state.bitter ? activeClass : ""
+                  }`}
+                  type="button"
+                  onClick={this.handleBitter}
+                >
+                  Bitter
+                </button>
+                <button
+                  className={`feedback-pourover__perfect ${
+                    this.state.perfect ? activeClass : ""
+                  }`}
+                  type="button"
+                  onClick={this.handlePerfect}
+                >
+                  Perfect
+                </button>
+                <button className="feedback-pourover__save" type="submit">
+                  Save
+                </button>
+              </form>
+            )}
           </section>
         </div>
       </section>

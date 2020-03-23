@@ -1,4 +1,5 @@
 .brew {
+  color: $black;
   &-container {
     padding: 36px 24px 24px 24px;
     width: 414px;
@@ -39,7 +40,7 @@
       &--water,
       &--notes,
       &--reccomendations {
-        @include text(16px, 20px);
+        @include text(16px, 24px);
         margin-bottom: 8px;
       }
     }

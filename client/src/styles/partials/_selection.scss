@@ -11,6 +11,7 @@
     &__header {
       @include header(36px, 36px);
       width: 100%;
+      color: $black;
     }
     &__pourover,
     &__frenchpress {
@@ -22,6 +23,7 @@
       &--text {
         margin-top: 24px;
         @include subheader(24px, 24px);
+        color: $black;
       }
       &--img {
         height: 140px;

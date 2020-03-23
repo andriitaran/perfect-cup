@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import moment from "moment";
 import PourOverLogo from "../assets/images/498476-coffee/svg/010-coffee-pot-1.svg";
 import FrenchPressLogo from "../assets/images/498476-coffee/svg/023-kettle.svg";
 
@@ -51,6 +52,29 @@ export default class Brew extends Component {
       method = "French Press";
     }
 
+    let reccomendations;
+    if (
+      this.state.selectedBrew.notes === "Coffee was too strong & bitter" &&
+      this.state.selectedBrew.ratio === 18
+    ) {
+      reccomendations =
+        "Try lowering the ratio to 1:17 and increasing grind size";
+    } else if (
+      this.state.selectedBrew.notes === "Coffee was too strong & bitter"
+    ) {
+      reccomendations = "Try lowering the ratio and increasing grind size";
+    } else if (this.state.selectedBrew.notes === "Coffee was bitter") {
+      reccomendations = "Try lowering the ratio";
+    } else if (this.state.selectedBrew.notes === "Coffee was too strong") {
+      reccomendations = "Try a coarser grind size";
+    } else if (this.state.selectedBrew.notes === "Coffee was too weak") {
+      reccomendations = "Try a finer grind size";
+    } else if (this.state.selectedBrew.notes === "Coffee was PERFECT!") {
+      reccomendations = "You made a PERFECT CUP!";
+    } else {
+      reccomendations = "You didn't provide any feedback";
+    }
+
     return (
       <section className="brew">
         <div className="brew-container">
@@ -58,10 +82,13 @@ export default class Brew extends Component {
           {image}
           <div className="brew-container__brewinfo">
             <span className="brew-container__brewinfo--date">
-              Date : {this.state.selectedBrew.date}
+              Date :{" "}
+              {moment(`${this.state.selectedBrew.date}`).format(
+                "MMMM Do, YYYY"
+              )}
             </span>
             <span className="brew-container__brewinfo--time">
-              Time : {this.state.selectedBrew.timestamp}
+              Time : {moment(`${this.state.selectedBrew.date}`).format("LT")}
             </span>
             <span className="brew-container__brewinfo--method">
               Method : {method}
@@ -82,13 +109,8 @@ export default class Brew extends Component {
               Notes : "{this.state.selectedBrew.notes}"
             </span>
             <span className="brew-container__brewinfo--reccomendations">
-              Reccomendations : "{this.state.selectedBrew.reccomendations}"
+              Reccomendations : "{reccomendations}"
             </span>
-
-            {/* You brewed {this.state.selectedBrew.water} 
-            of coffee with
-            {method} on {this.state.selectedBrew.date} at
-            {this.state.selectedBrew.timestamp} */}
           </div>
         </div>
       </section>

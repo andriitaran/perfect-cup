@@ -3,19 +3,25 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^4.9.5",
+    "@csstools/normalize.css": "github:csstools/normalize.css",
+    "@material-ui/core": "^4.9.7",
     "@material-ui/icons": "^4.9.1",
+    "@react-google-maps/api": "^1.8.5",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.1",
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
     "d3-ease": "^1.0.6",
+    "moment": "^2.24.0",
+    "normalize.css": "^8.0.1",
     "react": "^16.13.0",
     "react-circular-progressbar": "^2.0.3",
     "react-dom": "^16.13.0",
+    "react-google-maps": "^9.4.5",
     "react-move": "^6.1.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.0"
+    "react-scripts": "3.4.0",
+    "sanitize.css": "^11.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

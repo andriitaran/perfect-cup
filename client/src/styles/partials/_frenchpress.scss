@@ -1,8 +1,9 @@
 .frenchpress {
   &-container {
+    margin: 0 auto;
     padding: 36px 24px 24px 24px;
     width: 414px;
-    height: 676px;
+    max-height: 676px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -25,6 +26,9 @@
       align-items: center;
       &--img {
         height: 140px;
+        &.active {
+          display: none;
+        }
       }
     }
 
@@ -77,6 +81,7 @@
       &--header {
         @include subheader(16px, 20px);
         margin-top: 20px;
+        margin-bottom: 20px;
       }
       &--instructions {
         padding: 0;
@@ -108,10 +113,43 @@
         border-top-left-radius: 40px;
         padding: 20px 20px;
         & span {
-          margin-top: 100px;
+          margin: 50px 0;
           @include subheader(24px, 30px);
         }
       }
+    }
+  }
+}
+
+.CircularProgressbar {
+  max-height: 200px;
+  max-width: 200px;
+}
+
+.feedback-frenchpress {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  &__header {
+    margin: 50px 0;
+  }
+  &__bitter,
+  &__strong,
+  &__weak,
+  &__perfect,
+  &__save {
+    width: 150px;
+    height: 50px;
+    margin-bottom: 16px;
+    margin-right: 8px;
+    @include text(16px, 20px);
+    border-radius: 50px;
+    border: none;
+    &.active {
+      background: lightsalmon;
+    }
+    &:focus {
+      outline: none;
     }
   }
 }

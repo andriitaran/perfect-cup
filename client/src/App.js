@@ -14,6 +14,7 @@ import Brew from "./components/Brew";
 import Selection from "./components/Selection";
 import PourOver from "./components/PourOver";
 import FrenchPress from "./components/FrenchPress";
+import Discover from "./components/Discover";
 
 export default class App extends Component {
   render() {
@@ -25,7 +26,15 @@ export default class App extends Component {
             exact
             render={props => (
               <>
-                {/* <Welcome /> */}
+                <Welcome />
+              </>
+            )}
+          />
+          <Route
+            path="/prepare"
+            exact
+            render={props => (
+              <>
                 <Selection />
                 <Navigation />
               </>
@@ -51,7 +60,6 @@ export default class App extends Component {
               </>
             )}
           />
-
           <Route
             path="/pourover"
             render={props => (
@@ -66,6 +74,15 @@ export default class App extends Component {
             render={props => (
               <>
                 <FrenchPress />
+                <Navigation />
+              </>
+            )}
+          />
+          <Route
+            path="/discover"
+            render={props => (
+              <>
+                <Discover />
                 <Navigation />
               </>
             )}

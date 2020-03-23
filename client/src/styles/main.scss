@@ -7,7 +7,7 @@
 
 a {
   text-decoration: none;
-  color: black;
+  color: $black;
 }
 
 //APP STYLING
@@ -18,3 +18,4 @@ a {
 @import "../styles/partials/pourover";
 @import "../styles/partials/frenchpress";
 @import "../styles/partials/brew";
+@import "../styles/partials/discover";

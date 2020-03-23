@@ -1,13 +1,18 @@
 .pourover {
+  color: $black;
   &-container {
+    margin: 0 auto;
     padding: 36px 24px 24px 24px;
     width: 414px;
-    height: 676px;
+    max-height: 676px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     position: relative;
+    &.active {
+      background: #d3d3d3;
+    }
     &__close {
       height: 40px;
       position: absolute;
@@ -18,14 +23,18 @@
       margin-top: 60px;
       min-height: 200px;
       min-width: 200px;
-      background: lightgrey;
+      background: #d3d3d3;
       border-radius: 50%;
       display: flex;
       justify-content: center;
       align-items: center;
+      &.active {
+        background: $black;
+      }
       &--img {
         height: 140px;
         &.active {
+          color: $black;
           display: none;
         }
       }
@@ -80,6 +89,7 @@
       &--header {
         @include subheader(16px, 20px);
         margin-top: 20px;
+        margin-bottom: 20px;
       }
       &--instructions {
         padding: 0;
@@ -106,13 +116,14 @@
         display: flex;
         justify-content: center;
         align-items: flex-start;
-        background: lightgrey;
+        background: $black;
         border-top-right-radius: 40px;
         border-top-left-radius: 40px;
         padding: 20px 20px;
         & span {
-          margin-top: 100px;
+          margin: 50px 0;
           @include subheader(24px, 30px);
+          color: #d3d3d3;
         }
       }
     }
@@ -122,4 +133,33 @@
 .CircularProgressbar {
   max-height: 200px;
   max-width: 200px;
+}
+
+.feedback-pourover {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  &__header {
+    margin: 50px 0;
+  }
+  &__bitter,
+  &__strong,
+  &__weak,
+  &__perfect,
+  &__save {
+    width: 150px;
+    height: 50px;
+    background-color: #d3d3d3;
+    margin-bottom: 16px;
+    margin-right: 8px;
+    @include text(16px, 20px);
+    border-radius: 50px;
+    border: none;
+    &.active {
+      background: #ffa64d;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
 }

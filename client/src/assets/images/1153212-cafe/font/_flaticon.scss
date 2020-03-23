@@ -1,0 +1,139 @@
+    /*
+    Flaticon icon font: Flaticon
+    Creation date: 24/09/2018 13:04
+    */
+
+    @font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+    .fi:before{
+        display: inline-block;
+  font-family: "Flaticon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    }
+
+    .flaticon-001-coffee-cup:before { content: "\f100"; }
+.flaticon-002-coffee-grinder:before { content: "\f101"; }
+.flaticon-003-coffee:before { content: "\f102"; }
+.flaticon-004-scoop:before { content: "\f103"; }
+.flaticon-005-measuring-cup:before { content: "\f104"; }
+.flaticon-006-shaker:before { content: "\f105"; }
+.flaticon-007-cinnamon:before { content: "\f106"; }
+.flaticon-008-barista:before { content: "\f107"; }
+.flaticon-009-chocolate-bar:before { content: "\f108"; }
+.flaticon-010-doughnut:before { content: "\f109"; }
+.flaticon-011-coffee-cup-1:before { content: "\f10a"; }
+.flaticon-012-coffee-bean:before { content: "\f10b"; }
+.flaticon-013-tea:before { content: "\f10c"; }
+.flaticon-014-placeholder:before { content: "\f10d"; }
+.flaticon-015-coffee-filter:before { content: "\f10e"; }
+.flaticon-016-filter:before { content: "\f10f"; }
+.flaticon-017-spoon:before { content: "\f110"; }
+.flaticon-018-coffee-truck:before { content: "\f111"; }
+.flaticon-019-vending-machine:before { content: "\f112"; }
+.flaticon-020-thermometer:before { content: "\f113"; }
+.flaticon-021-pitcher:before { content: "\f114"; }
+.flaticon-022-donut:before { content: "\f115"; }
+.flaticon-023-cezve:before { content: "\f116"; }
+.flaticon-024-coffee-cup-2:before { content: "\f117"; }
+.flaticon-025-coffee-filter-1:before { content: "\f118"; }
+.flaticon-026-sugar-jar:before { content: "\f119"; }
+.flaticon-027-cake:before { content: "\f11a"; }
+.flaticon-028-kettle:before { content: "\f11b"; }
+.flaticon-029-cupcake:before { content: "\f11c"; }
+.flaticon-030-measuring-spoons:before { content: "\f11d"; }
+.flaticon-031-coffee-maker:before { content: "\f11e"; }
+.flaticon-032-biscuit:before { content: "\f11f"; }
+.flaticon-033-menu:before { content: "\f120"; }
+.flaticon-034-tea-bag:before { content: "\f121"; }
+.flaticon-035-cafe:before { content: "\f122"; }
+.flaticon-036-coffee-machine:before { content: "\f123"; }
+.flaticon-037-sachet:before { content: "\f124"; }
+.flaticon-038-reward:before { content: "\f125"; }
+.flaticon-039-coffee-1:before { content: "\f126"; }
+.flaticon-040-whipped-cream:before { content: "\f127"; }
+.flaticon-041-blender:before { content: "\f128"; }
+.flaticon-042-coffee-bag:before { content: "\f129"; }
+.flaticon-043-milk:before { content: "\f12a"; }
+.flaticon-044-tea-pot:before { content: "\f12b"; }
+.flaticon-045-food:before { content: "\f12c"; }
+.flaticon-046-terrace:before { content: "\f12d"; }
+.flaticon-047-barista-1:before { content: "\f12e"; }
+.flaticon-048-coffee-2:before { content: "\f12f"; }
+.flaticon-049-jigger:before { content: "\f130"; }
+.flaticon-050-aeropress:before { content: "\f131"; }
+    
+    $font-Flaticon-001-coffee-cup: "\f100";
+    $font-Flaticon-002-coffee-grinder: "\f101";
+    $font-Flaticon-003-coffee: "\f102";
+    $font-Flaticon-004-scoop: "\f103";
+    $font-Flaticon-005-measuring-cup: "\f104";
+    $font-Flaticon-006-shaker: "\f105";
+    $font-Flaticon-007-cinnamon: "\f106";
+    $font-Flaticon-008-barista: "\f107";
+    $font-Flaticon-009-chocolate-bar: "\f108";
+    $font-Flaticon-010-doughnut: "\f109";
+    $font-Flaticon-011-coffee-cup-1: "\f10a";
+    $font-Flaticon-012-coffee-bean: "\f10b";
+    $font-Flaticon-013-tea: "\f10c";
+    $font-Flaticon-014-placeholder: "\f10d";
+    $font-Flaticon-015-coffee-filter: "\f10e";
+    $font-Flaticon-016-filter: "\f10f";
+    $font-Flaticon-017-spoon: "\f110";
+    $font-Flaticon-018-coffee-truck: "\f111";
+    $font-Flaticon-019-vending-machine: "\f112";
+    $font-Flaticon-020-thermometer: "\f113";
+    $font-Flaticon-021-pitcher: "\f114";
+    $font-Flaticon-022-donut: "\f115";
+    $font-Flaticon-023-cezve: "\f116";
+    $font-Flaticon-024-coffee-cup-2: "\f117";
+    $font-Flaticon-025-coffee-filter-1: "\f118";
+    $font-Flaticon-026-sugar-jar: "\f119";
+    $font-Flaticon-027-cake: "\f11a";
+    $font-Flaticon-028-kettle: "\f11b";
+    $font-Flaticon-029-cupcake: "\f11c";
+    $font-Flaticon-030-measuring-spoons: "\f11d";
+    $font-Flaticon-031-coffee-maker: "\f11e";
+    $font-Flaticon-032-biscuit: "\f11f";
+    $font-Flaticon-033-menu: "\f120";
+    $font-Flaticon-034-tea-bag: "\f121";
+    $font-Flaticon-035-cafe: "\f122";
+    $font-Flaticon-036-coffee-machine: "\f123";
+    $font-Flaticon-037-sachet: "\f124";
+    $font-Flaticon-038-reward: "\f125";
+    $font-Flaticon-039-coffee-1: "\f126";
+    $font-Flaticon-040-whipped-cream: "\f127";
+    $font-Flaticon-041-blender: "\f128";
+    $font-Flaticon-042-coffee-bag: "\f129";
+    $font-Flaticon-043-milk: "\f12a";
+    $font-Flaticon-044-tea-pot: "\f12b";
+    $font-Flaticon-045-food: "\f12c";
+    $font-Flaticon-046-terrace: "\f12d";
+    $font-Flaticon-047-barista-1: "\f12e";
+    $font-Flaticon-048-coffee-2: "\f12f";
+    $font-Flaticon-049-jigger: "\f130";
+    $font-Flaticon-050-aeropress: "\f131";

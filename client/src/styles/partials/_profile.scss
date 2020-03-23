@@ -1,6 +1,7 @@
 .profile {
+  color: $black;
   &-container {
-    padding: 36px 24px 24px 24px;
+    padding: 36px 24px 0px 24px;
     width: 414px;
     height: 676px;
     justify-content: flex-start;
@@ -8,24 +9,19 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    // &__close {
-    //   height: 30px;
-    //   position: absolute;
-    //   left: 24px;
-    //   top: 24px;
-    // }
 
     &__circle {
       margin: 0 auto;
       min-height: 200px;
       min-width: 200px;
-      background: lightgrey;
+      background: #d3d3d3;
       border-radius: 50%;
       display: flex;
       justify-content: center;
       align-items: center;
       &--img {
         height: 140px;
+        padding-top: 10px;
       }
     }
 
@@ -34,11 +30,20 @@
       width: 100%;
       margin-bottom: 24px;
     }
-    &__mybrews {
+    &__brews {
       @include subheader(20px, 36px);
       margin-top: 24px;
       margin-bottom: 40px;
       width: 100%;
+    }
+
+    &__mybrews {
+      @include subheader(20px, 36px);
+      margin-top: 24px;
+      margin-bottom: 24px;
+      width: 380px;
+      overflow: scroll;
+      position: aboslute;
     }
     &__placeholders {
       display: flex;
@@ -53,7 +58,7 @@
         padding-left: 40px;
       }
       &--method {
-        padding-left: 40px;
+        padding-left: 50px;
       }
     }
     &__brew {
@@ -74,7 +79,7 @@
       &--method {
         display: flex;
         height: 20px;
-        padding-left: 60px;
+        padding-left: 68px;
       }
       &--time {
         // padding-left: 40px;

@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Permanent+Marker");
 html,
 body {
   margin: 0;
@@ -30,13 +31,14 @@ body {
 
 a {
   text-decoration: none;
-  color: black;
+  color: #333333;
 }
 
-.navigation {
-  width: 100%;
+.navigation__container {
+  margin: 0 auto;
+  width: 414px;
   height: 60px;
-  background: lightgrey;
+  background: #333333;
   position: fixed;
 }
 
@@ -65,19 +67,28 @@ a {
 
 .navigation__buttons--prepare img, .navigation__buttons--profile img, .navigation__buttons--discover img {
   margin-top: 10px;
-  height: 30px;
+  height: 24px;
 }
 
 .navigation__buttons--prepare span, .navigation__buttons--profile span, .navigation__buttons--discover span {
   font-family: Avenir Regular;
   font-size: 16px;
   line-height: 20px;
+  color: #d3d3d3;
+}
+
+.navigation__buttons.active {
+  color: orange;
+}
+
+.welcome {
+  -webkit-animation: fadeout 4s;
+          animation: fadeout 4s;
+  -webkit-animation-delay: 11s;
+          animation-delay: 11s;
 }
 
 .welcome-container {
-  padding: 24px;
-  width: 414px;
-  height: 736px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -91,20 +102,82 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  position: relative;
+}
+
+.welcome-container__video {
+  -webkit-animation: fadein 5s;
+          animation: fadein 5s;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 414px;
+  height: 736px;
 }
 
 .welcome-container__logo {
-  height: 200px;
+  -webkit-animation: fadein 4s;
+          animation: fadein 4s;
+  top: 200px;
+  height: 120px;
+  position: absolute;
+  -webkit-filter: drop-shadow(5px 5px 5px #222);
+  filter: drop-shadow(5px 5px 5px #222);
 }
 
 .welcome-container__header {
-  font-family: Avenir Bold;
+  font-family: "Permanent Marker", cursive;
   font-size: 64px;
-  line-height: 64px;
+  bottom: 300px;
+  -webkit-animation: fadein 4s;
+          animation: fadein 4s;
+  color: white;
+  position: absolute;
+  -webkit-filter: drop-shadow(5px 5px 5px #222);
+  filter: drop-shadow(5px 5px 5px #222);
+}
+
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.profile {
+  color: #333333;
 }
 
 .profile-container {
-  padding: 36px 24px 24px 24px;
+  padding: 36px 24px 0px 24px;
   width: 414px;
   height: 676px;
   -webkit-box-pack: start;
@@ -127,7 +200,7 @@ a {
   margin: 0 auto;
   min-height: 200px;
   min-width: 200px;
-  background: lightgrey;
+  background: #d3d3d3;
   border-radius: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -142,6 +215,7 @@ a {
 
 .profile-container__circle--img {
   height: 140px;
+  padding-top: 10px;
 }
 
 .profile-container__header {
@@ -152,13 +226,24 @@ a {
   margin-bottom: 24px;
 }
 
-.profile-container__mybrews {
+.profile-container__brews {
   font-family: Avenir Demi Bold;
   font-size: 20px;
   line-height: 36px;
   margin-top: 24px;
   margin-bottom: 40px;
   width: 100%;
+}
+
+.profile-container__mybrews {
+  font-family: Avenir Demi Bold;
+  font-size: 20px;
+  line-height: 36px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  width: 380px;
+  overflow: scroll;
+  position: aboslute;
 }
 
 .profile-container__placeholders {
@@ -184,7 +269,7 @@ a {
 }
 
 .profile-container__placeholders--method {
-  padding-left: 40px;
+  padding-left: 50px;
 }
 
 .profile-container__brew {
@@ -216,7 +301,7 @@ a {
   display: -ms-flexbox;
   display: flex;
   height: 20px;
-  padding-left: 60px;
+  padding-left: 68px;
 }
 
 .selection-container {
@@ -245,6 +330,7 @@ a {
   font-size: 36px;
   line-height: 36px;
   width: 100%;
+  color: #333333;
 }
 
 .selection-container__pourover, .selection-container__frenchpress {
@@ -269,16 +355,22 @@ a {
   font-family: Avenir Demi Bold;
   font-size: 24px;
   line-height: 24px;
+  color: #333333;
 }
 
 .selection-container__pourover--img, .selection-container__frenchpress--img {
   height: 140px;
 }
 
+.pourover {
+  color: #333333;
+}
+
 .pourover-container {
+  margin: 0 auto;
   padding: 36px 24px 24px 24px;
   width: 414px;
-  height: 676px;
+  max-height: 676px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -295,6 +387,10 @@ a {
   position: relative;
 }
 
+.pourover-container.active {
+  background: #d3d3d3;
+}
+
 .pourover-container__close {
   height: 40px;
   position: absolute;
@@ -306,7 +402,7 @@ a {
   margin-top: 60px;
   min-height: 200px;
   min-width: 200px;
-  background: lightgrey;
+  background: #d3d3d3;
   border-radius: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -319,11 +415,16 @@ a {
           align-items: center;
 }
 
+.pourover-container__circle.active {
+  background: #333333;
+}
+
 .pourover-container__circle--img {
   height: 140px;
 }
 
 .pourover-container__circle--img.active {
+  color: #333333;
   display: none;
 }
 
@@ -413,6 +514,7 @@ a {
   font-size: 16px;
   line-height: 20px;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .pourover-container__steps--instructions {
@@ -455,17 +557,18 @@ a {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  background: lightgrey;
+  background: #333333;
   border-top-right-radius: 40px;
   border-top-left-radius: 40px;
   padding: 20px 20px;
 }
 
 .pourover-container__brewing.active span {
-  margin-top: 100px;
+  margin: 50px 0;
   font-family: Avenir Demi Bold;
   font-size: 24px;
   line-height: 30px;
+  color: #d3d3d3;
 }
 
 .CircularProgressbar {
@@ -473,10 +576,47 @@ a {
   max-width: 200px;
 }
 
+.feedback-pourover {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.feedback-pourover__header {
+  margin: 50px 0;
+}
+
+.feedback-pourover__bitter, .feedback-pourover__strong, .feedback-pourover__weak, .feedback-pourover__perfect, .feedback-pourover__save {
+  width: 150px;
+  height: 50px;
+  background-color: #d3d3d3;
+  margin-bottom: 16px;
+  margin-right: 8px;
+  font-family: Avenir Regular;
+  font-size: 16px;
+  line-height: 20px;
+  border-radius: 50px;
+  border: none;
+}
+
+.feedback-pourover__bitter.active, .feedback-pourover__strong.active, .feedback-pourover__weak.active, .feedback-pourover__perfect.active, .feedback-pourover__save.active {
+  background: #ffa64d;
+}
+
+.feedback-pourover__bitter:focus, .feedback-pourover__strong:focus, .feedback-pourover__weak:focus, .feedback-pourover__perfect:focus, .feedback-pourover__save:focus {
+  outline: none;
+}
+
 .frenchpress-container {
+  margin: 0 auto;
   padding: 36px 24px 24px 24px;
   width: 414px;
-  height: 676px;
+  max-height: 676px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -519,6 +659,10 @@ a {
 
 .frenchpress-container__circle--img {
   height: 140px;
+}
+
+.frenchpress-container__circle--img.active {
+  display: none;
 }
 
 .frenchpress-container__tap-text {
@@ -607,6 +751,7 @@ a {
   font-size: 16px;
   line-height: 20px;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .frenchpress-container__steps--instructions {
@@ -656,10 +801,54 @@ a {
 }
 
 .frenchpress-container__brewing.active span {
-  margin-top: 100px;
+  margin: 50px 0;
   font-family: Avenir Demi Bold;
   font-size: 24px;
   line-height: 30px;
+}
+
+.CircularProgressbar {
+  max-height: 200px;
+  max-width: 200px;
+}
+
+.feedback-frenchpress {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.feedback-frenchpress__header {
+  margin: 50px 0;
+}
+
+.feedback-frenchpress__bitter, .feedback-frenchpress__strong, .feedback-frenchpress__weak, .feedback-frenchpress__perfect, .feedback-frenchpress__save {
+  width: 150px;
+  height: 50px;
+  margin-bottom: 16px;
+  margin-right: 8px;
+  font-family: Avenir Regular;
+  font-size: 16px;
+  line-height: 20px;
+  border-radius: 50px;
+  border: none;
+}
+
+.feedback-frenchpress__bitter.active, .feedback-frenchpress__strong.active, .feedback-frenchpress__weak.active, .feedback-frenchpress__perfect.active, .feedback-frenchpress__save.active {
+  background: lightsalmon;
+}
+
+.feedback-frenchpress__bitter:focus, .feedback-frenchpress__strong:focus, .feedback-frenchpress__weak:focus, .feedback-frenchpress__perfect:focus, .feedback-frenchpress__save:focus {
+  outline: none;
+}
+
+.brew {
+  color: #333333;
 }
 
 .brew-container {
@@ -725,7 +914,108 @@ a {
 .brew-container__brewinfo--date, .brew-container__brewinfo--time, .brew-container__brewinfo--method, .brew-container__brewinfo--ratio, .brew-container__brewinfo--grind, .brew-container__brewinfo--coffee, .brew-container__brewinfo--water, .brew-container__brewinfo--notes, .brew-container__brewinfo--reccomendations {
   font-family: Avenir Regular;
   font-size: 16px;
-  line-height: 20px;
+  line-height: 24px;
   margin-bottom: 8px;
+}
+
+.discover {
+  color: #333333;
+}
+
+.discover-container {
+  padding: 36px 24px 24px 24px;
+  width: 414px;
+  height: 676px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.discover-container__header {
+  font-family: Avenir Bold;
+  font-size: 36px;
+  line-height: 36px;
+  width: 100%;
+}
+
+.discover-container__text {
+  font-family: Avenir Demi Bold;
+  font-size: 20px;
+  line-height: 36px;
+  margin-top: 24px;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.discover-container__map {
+  width: 366px;
+  height: 440px;
+}
+
+.discover-container__map--window {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.discover-container__map--window-img {
+  width: 100%;
+  height: 70px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 50% 50%;
+     object-position: 50% 50%;
+}
+
+.discover-container__map--window-header {
+  font-family: Avenir Demi Bold;
+  font-size: 20px;
+  line-height: 24px;
+  margin: 8px;
+}
+
+.discover-container__map--window-address {
+  font-family: Avenir Regular;
+  font-size: 16px;
+  line-height: 20px;
+  margin: 0px 8px 8px 8px;
+}
+
+.discover-container__map--window-hours {
+  font-family: Avenir Regular;
+  font-size: 12px;
+  line-height: 20px;
+  margin: 0px 8px 8px 8px;
+}
+
+.gm-style .gm-style-iw-c {
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.gm-style .gm-style-iw-d {
+  position: relative;
+  overflow: hidden !important;
 }
 /*# sourceMappingURL=main.css.map */
