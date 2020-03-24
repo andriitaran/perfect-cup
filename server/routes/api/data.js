@@ -47,7 +47,8 @@ router.post("/", (req, res) => {
     ratio: req.body.ratio,
     grind: req.body.grind,
     coffee: req.body.coffee,
-    water: req.body.water
+    water: req.body.water,
+    notes: notes
   };
   data.push(newBrewData); //pushes new brewData into an existing array
   helper.writeJSONFile(dataFile, data); //writes new array of elements to JSON

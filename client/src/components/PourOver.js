@@ -4,7 +4,6 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import uuid from "uuid";
 import axios from "axios";
-import Button from "@material-ui/core/Button";
 import Select from "@material-ui/core/Select";
 import PourOverLogo from "../assets/images/498476-coffee/svg/010-coffee-pot-1.svg";
 import Back from "../assets/images/back.svg";
@@ -42,13 +41,13 @@ export default class PourOver extends Component {
     const step6 = "Give brewer a gentle swirl";
     const step7 = "Let the water drain through and serve";
     const arr = [
-      { text: step1, time: 1000 },
-      { text: step2, time: 1000 },
-      { text: step3, time: 1000 },
-      { text: step4, time: 1000 },
-      { text: step5, time: 1000 },
-      { text: step6, time: 1000 },
-      { text: step7, time: 1000 }
+      { text: step1, time: 5000 },
+      { text: step2, time: 15000 },
+      { text: step3, time: 15000 },
+      { text: step4, time: 30000 },
+      { text: step5, time: 60000 },
+      { text: step6, time: 5000 },
+      { text: step7, time: 30000 }
     ];
 
     this.setState(
@@ -247,19 +246,17 @@ export default class PourOver extends Component {
     }
 
     let duration = this.state.brewingStepDuration / 1000;
-    let counter = millisToMinutesAndSeconds(
-      this.state.brewingStepDuration - 1000
-    );
+    let counter = millisToMinutesAndSeconds(this.state.brewingStepDuration);
 
     let countdown = () =>
       setInterval(() => {
         duration--;
         if (duration > 0 && duration < 10) {
-          counter = "0:0" + (duration - 1);
+          counter = "0:0" + duration;
         } else if (duration > 0 && duration <= 60) {
-          counter = "0:" + (duration - 1);
+          counter = "0:" + duration;
         } else if (duration > 0 && duration > 60) {
-          counter = "01:0" + ((duration - 1) % 60);
+          counter = "01:0" + (duration % 60);
         } else {
           clearInterval(duration);
         }

@@ -34,6 +34,29 @@ a {
   color: #333333;
 }
 
+.fade {
+  -webkit-animation: fade-in-keyframes 1s;
+          animation: fade-in-keyframes 1s;
+}
+
+@-webkit-keyframes fade-in-keyframes {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-keyframes {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .navigation .active span {
   color: orange;
 }
@@ -671,6 +694,10 @@ a {
   }
 }
 
+.frenchpress {
+  color: #333333;
+}
+
 .frenchpress-container {
   margin: 0 auto;
   padding: 36px 24px 24px 24px;
@@ -692,6 +719,10 @@ a {
   position: relative;
 }
 
+.frenchpress-container.active {
+  background: #d3d3d3;
+}
+
 .frenchpress-container__close {
   height: 40px;
   position: absolute;
@@ -703,7 +734,7 @@ a {
   margin-top: 60px;
   min-height: 200px;
   min-width: 200px;
-  background: lightgrey;
+  background: #d3d3d3;
   border-radius: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -716,11 +747,16 @@ a {
           align-items: center;
 }
 
+.frenchpress-container__circle.active {
+  background: #333333;
+}
+
 .frenchpress-container__circle--img {
   height: 140px;
 }
 
 .frenchpress-container__circle--img.active {
+  color: #333333;
   display: none;
 }
 
@@ -730,6 +766,10 @@ a {
   font-family: Avenir Demi Bold;
   font-size: 16px;
   line-height: 20px;
+}
+
+.frenchpress-container__tap-text.active {
+  opacity: 0;
 }
 
 .frenchpress-container__selection {
@@ -746,6 +786,10 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.frenchpress-container__selection.active {
+  opacity: 0;
 }
 
 .frenchpress-container__selection--grind, .frenchpress-container__selection--coffee, .frenchpress-container__selection--water {
@@ -813,7 +857,12 @@ a {
   margin-bottom: 20px;
 }
 
+.frenchpress-container__steps--header.active {
+  opacity: 0;
+}
+
 .frenchpress-container__steps--instructions {
+  margin-top: 0px;
   padding: 0;
   font-family: Avenir Regular;
   font-size: 16px;
@@ -823,6 +872,7 @@ a {
 
 .frenchpress-container__steps--instructions li {
   margin-bottom: 16px;
+  text-align: center;
 }
 
 .frenchpress-container__brewing {
@@ -839,9 +889,18 @@ a {
           transform: translateY(100%);
 }
 
+.frenchpress-container__brewing--steps {
+  margin: 120px 0;
+  font-family: Avenir Demi Bold;
+  font-size: 24px;
+  line-height: 30px;
+  color: #d3d3d3;
+  text-align: center;
+}
+
 .frenchpress-container__brewing.active {
   opacity: 1;
-  height: 350px;
+  height: 300px;
   -webkit-transform: translateY(0);
           transform: translateY(0);
   display: -webkit-box;
@@ -853,17 +912,10 @@ a {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  background: lightgrey;
+  background: #333333;
   border-top-right-radius: 40px;
   border-top-left-radius: 40px;
   padding: 20px 20px;
-}
-
-.frenchpress-container__brewing.active span {
-  margin: 50px 0;
-  font-family: Avenir Demi Bold;
-  font-size: 24px;
-  line-height: 30px;
 }
 
 .CircularProgressbar {
@@ -883,12 +935,18 @@ a {
 }
 
 .feedback-frenchpress__header {
-  margin: 50px 0;
+  font-family: Avenir Demi Bold;
+  font-size: 24px;
+  line-height: 30px;
+  color: #d3d3d3;
+  text-align: center;
+  margin: 30px 0;
 }
 
 .feedback-frenchpress__bitter, .feedback-frenchpress__strong, .feedback-frenchpress__weak, .feedback-frenchpress__perfect, .feedback-frenchpress__save {
   width: 150px;
   height: 50px;
+  background-color: #d3d3d3;
   margin-bottom: 16px;
   margin-right: 8px;
   font-family: Avenir Regular;
@@ -899,11 +957,24 @@ a {
 }
 
 .feedback-frenchpress__bitter.active, .feedback-frenchpress__strong.active, .feedback-frenchpress__weak.active, .feedback-frenchpress__perfect.active, .feedback-frenchpress__save.active {
-  background: lightsalmon;
+  background: #ffa64d;
 }
 
 .feedback-frenchpress__bitter:focus, .feedback-frenchpress__strong:focus, .feedback-frenchpress__weak:focus, .feedback-frenchpress__perfect:focus, .feedback-frenchpress__save:focus {
   outline: none;
+}
+
+.sizing {
+  height: 400px;
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 .brew {
@@ -973,7 +1044,7 @@ a {
 .brew-container__brewinfo--date, .brew-container__brewinfo--time, .brew-container__brewinfo--method, .brew-container__brewinfo--ratio, .brew-container__brewinfo--grind, .brew-container__brewinfo--coffee, .brew-container__brewinfo--water, .brew-container__brewinfo--notes, .brew-container__brewinfo--reccomendations {
   font-family: Avenir Regular;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 26px;
   margin-bottom: 8px;
 }
 

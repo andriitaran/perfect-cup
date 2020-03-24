@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import Prepare from "../assets/icons/prepare_grey.svg";
-import Profile from "../assets/icons/profile_grey.svg";
-import Discover from "../assets/icons/discover_grey.svg";
 
 export default class Navigation extends Component {
   render() {

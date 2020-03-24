@@ -36,19 +36,23 @@ export default class FrenchPress extends Component {
     const step2 = `Put 
     ${this.coffeeAmount()} g
     of coffee into filter`;
-    const step3 = `Pour ${this.bloom()}g of water until all the grounds are evenly saturated`;
-    const step4 = "Wait 30 seconds for coffee to “bloom”";
-    const step5 = `Pour remaining ${this.remainingWaterAmount()}g of water in circular motion`;
-    const step6 = "Give brewer a gentle swirl";
-    const step7 = "Let the water drain through and serve";
+    const step3 = `Pour ${this.state.waterAmount}g of water`;
+    const step4 = "Wait for 4 minutes for coffee to brew";
+    const step5 =
+      "Using tablespoon, stir the crust that formed on top of the coffee";
+    const step6 = "Let coffee brew for another 5 minutes";
+    const step7 =
+      "Put the plunger and press it down until it reaches the top of the coffee";
+    const step8 = "Serve and enjoy!";
     const arr = [
-      { text: step1, time: 1000 },
-      { text: step2, time: 1000 },
-      { text: step3, time: 1000 },
-      { text: step4, time: 1000 },
-      { text: step5, time: 1000 },
-      { text: step6, time: 1000 },
-      { text: step7, time: 1000 }
+      { text: step1, time: 5000 },
+      { text: step2, time: 15000 },
+      { text: step3, time: 15000 },
+      { text: step4, time: 240000 },
+      { text: step5, time: 10000 },
+      { text: step6, time: 300000 },
+      { text: step7, time: 10000 },
+      { text: step8, time: 5000 }
     ];
 
     this.setState(
@@ -239,14 +243,25 @@ export default class FrenchPress extends Component {
 
   render() {
     let activeClass;
+
+    function millisToMinutesAndSeconds(millis) {
+      var minutes = Math.floor(millis / 60000);
+      var seconds = ((millis % 60000) / 1000).toFixed(0);
+      return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+    }
+
     let duration = this.state.brewingStepDuration / 1000;
-    let counter = duration - 1 + "s";
+    let counter = millisToMinutesAndSeconds(this.state.brewingStepDuration);
 
     let countdown = () =>
       setInterval(() => {
         duration--;
-        if (duration > 0) {
-          counter = duration - 1 + "s";
+        if (duration > 0 && duration < 10) {
+          counter = "0:0" + duration;
+        } else if (duration > 0 && duration <= 60) {
+          counter = "0:" + duration;
+        } else if (duration > 0 && duration > 60) {
+          counter = "01:0" + (duration % 60);
         } else {
           clearInterval(duration);
         }
@@ -257,7 +272,11 @@ export default class FrenchPress extends Component {
     this.state.brewingActive ? (activeClass = "active") : (activeClass = "");
     return (
       <section className="frenchpress">
-        <div className="frenchpress-container">
+        <div
+          className={`frenchpress-container ${
+            this.state.animating === true ? activeClass : ""
+          }`}
+        >
           <Link to="/prepare">
             <img
               className="frenchpress-container__close"
@@ -267,7 +286,9 @@ export default class FrenchPress extends Component {
           </Link>
 
           <div
-            className="frenchpress-container__circle"
+            className={`frenchpress-container__circle ${
+              this.state.animating === true ? activeClass : ""
+            }`}
             onClick={this.setSteps}
           >
             {this.state.animating && (
@@ -282,7 +303,12 @@ export default class FrenchPress extends Component {
                     <CircularProgressbar
                       value={value}
                       text={`${counter}`}
-                      styles={buildStyles({ pathTransition: "none" })}
+                      styles={buildStyles({
+                        pathTransition: "none",
+                        trailColor: "333333",
+                        pathColor: "ffa64d",
+                        textColor: "d3d3d3"
+                      })}
                     ></CircularProgressbar>
                   );
                 }}
@@ -298,88 +324,116 @@ export default class FrenchPress extends Component {
             />
           </div>
 
-          <span className="frenchpress-container__tap-text">
-            TAP TO CHANGE DOSE
-          </span>
-
-          <section className="frenchpress-container__selection">
-            <div className="frenchpress-container__selection--grind">
-              <span>Coarse</span>
-            </div>
-
-            <div className="frenchpress-container__selection--coffee">
-              <FormControl
-                style={{
-                  display: this.state.coffeeActive ? "block" : "none"
-                }}
-              >
-                <Select
-                  value={this.state.ratio}
-                  onChange={this.handleChangeRatio}
-                >
-                  <MenuItem value={16}>1:16</MenuItem>
-                  <MenuItem value={17}>1:17</MenuItem>
-                  <MenuItem value={18}>1:18</MenuItem>
-                </Select>
-              </FormControl>
+          {!this.state.feedback ? (
+            <>
               <span
-                style={{
-                  display: this.state.coffeeActive ? "none" : "block"
-                }}
-                onClick={this.handleActiveCoffee}
+                className={`frenchpress-container__tap-text ${
+                  this.state.animating === true ? activeClass : ""
+                }`}
               >
-                {this.coffeeAmount()}g
+                TAP TO CHANGE DOSE
               </span>
-            </div>
 
-            <div className="frenchpress-container__selection--water">
-              <FormControl
-                style={{
-                  display: this.state.waterActive ? "block" : "none"
-                }}
+              <section
+                className={`frenchpress-container__selection ${
+                  this.state.animating === true ? activeClass : ""
+                }`}
               >
-                <Select
-                  value={this.state.waterAmount}
-                  onChange={this.handleChangeWaterAmount}
-                >
-                  <MenuItem value={220}>220g</MenuItem>
-                  <MenuItem value={300}>300g</MenuItem>
-                  <MenuItem value={350}>350g</MenuItem>
-                </Select>
-              </FormControl>
+                <div className="frenchpress-container__selection--grind">
+                  <span>Medium</span>
+                </div>
+
+                <div className="frenchpress-container__selection--coffee">
+                  <FormControl
+                    style={{
+                      display: this.state.coffeeActive ? "block" : "none"
+                    }}
+                  >
+                    <Select
+                      value={this.state.ratio}
+                      onChange={this.handleChangeRatio}
+                    >
+                      <MenuItem value={16}>1:16</MenuItem>
+                      <MenuItem value={17}>1:17</MenuItem>
+                      <MenuItem value={18}>1:18</MenuItem>
+                    </Select>
+                  </FormControl>
+                  <span
+                    style={{
+                      display: this.state.coffeeActive ? "none" : "block"
+                    }}
+                    onClick={this.handleActiveCoffee}
+                  >
+                    {this.coffeeAmount()}g
+                  </span>
+                </div>
+
+                <div className="frenchpress-container__selection--water">
+                  <FormControl
+                    style={{
+                      display: this.state.waterActive ? "block" : "none"
+                    }}
+                  >
+                    <Select
+                      value={this.state.waterAmount}
+                      onChange={this.handleChangeWaterAmount}
+                    >
+                      <MenuItem value={220}>220g</MenuItem>
+                      <MenuItem value={300}>300g</MenuItem>
+                      <MenuItem value={350}>350g</MenuItem>
+                    </Select>
+                  </FormControl>
+                  <span
+                    style={{
+                      display: this.state.waterActive ? "none" : "block"
+                    }}
+                    onClick={this.handleActiveWater}
+                  >
+                    {this.state.waterAmount}g
+                  </span>
+                </div>
+                <div className="frenchpress-container__placeholders">
+                  <span>Grind Size</span>
+                  <span>Ground Coffee</span>
+                  <span>Water</span>
+                </div>
+              </section>
               <span
-                style={{
-                  display: this.state.waterActive ? "none" : "block"
-                }}
-                onClick={this.handleActiveWater}
+                className={`frenchpress-container__steps--header ${
+                  this.state.animating === true ? activeClass : ""
+                }`}
               >
-                {this.state.waterAmount}g
+                STEPS
               </span>
-            </div>
-            <div className="frenchpress-container__placeholders">
-              <span>Grind Size</span>
-              <span>Ground Coffee</span>
-              <span>Water</span>
-            </div>
-          </section>
 
-          <span className="frenchpress-container__steps--header">STEPS</span>
-          <div className="frenchpress-container__steps">
-            <ul className="frenchpress-container__steps--instructions">
-              <li>{`Put ${this.coffeeAmount()} g of coffee into filter`}</li>
-              <li>{`Pour ${this.bloom()}g of water until all the
-              grounds are evenly saturated`}</li>
-              <li>Wait 30 seconds for coffee to “bloom</li>
-              <li>{`Pour remaining ${this.remainingWaterAmount()}g
-              of water in circular motion`}</li>
-              <li>Give brewer a gentle swirl</li>
-              <li>Let the water drain through and serve</li>
-            </ul>
-          </div>
+              <div className="frenchpress-container__steps">
+                <ul className="frenchpress-container__steps--instructions">
+                  <li>{`Put 
+    ${this.coffeeAmount()} g
+    of coffee into filter`}</li>
+                  <li>{`Pour ${this.state.waterAmount}g of water`}</li>
+                  <li>Wait for 4 minutes for coffee to brew</li>
+                  <li>
+                    Using tablespoon, stir the crust that formed on top of the
+                    coffee
+                  </li>
+                  <li>
+                    Put the plunger and press it down until it reaches the top
+                    of the coffee
+                  </li>
+                  <li>Serve and enjoy!</li>
+                </ul>
+              </div>
+            </>
+          ) : (
+            <section className="sizing"></section>
+          )}
 
           <section className={`frenchpress-container__brewing ${activeClass}`}>
             {!this.state.feedback ? (
-              <span>{this.state.brewingStep}</span>
+              <span className="frenchpress-container__brewing--steps">
+                {this.state.brewingStep}
+              </span>
             ) : (
               <form
                 className="feedback-frenchpress"
