@@ -752,7 +752,8 @@ a {
 }
 
 .frenchpress-container__circle--img {
-  height: 140px;
+  padding-left: 16px;
+  padding-bottom: 8px;
 }
 
 .frenchpress-container__circle--img.active {

@@ -57,7 +57,7 @@ class Discover extends Component {
               });
             }}
             icon={{
-              url: "https://image.flaticon.com/icons/svg/1153/1153173.svg",
+              url: "https://image.flaticon.com/icons/svg/90/90619.svg",
               scaledSize: new window.google.maps.Size(25, 25)
             }}
           />
