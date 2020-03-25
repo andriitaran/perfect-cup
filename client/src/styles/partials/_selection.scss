@@ -1,5 +1,7 @@
 .selection {
+  animation: fade-slide-down 0.5s 0s ease-in-out forwards;
   &-container {
+    // margin: 0 auto;
     padding: 36px 24px 24px 24px;
     width: 414px;
     height: 676px;
@@ -29,5 +31,16 @@
         height: 140px;
       }
     }
+  }
+}
+
+@keyframes fade-slide-down {
+  0% {
+    opacity: 0;
+    transform: translateX(-2rem);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
   }
 }

@@ -256,12 +256,8 @@ export default class FrenchPress extends Component {
     let countdown = () =>
       setInterval(() => {
         duration--;
-        if (duration > 0 && duration < 10) {
-          counter = "0:0" + duration;
-        } else if (duration > 0 && duration <= 60) {
-          counter = "0:" + duration;
-        } else if (duration > 0 && duration > 60) {
-          counter = "01:0" + (duration % 60);
+        if (duration > 0) {
+          counter = millisToMinutesAndSeconds(duration * 1000);
         } else {
           clearInterval(duration);
         }

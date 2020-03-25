@@ -4,6 +4,7 @@
   animation: fadeout 4s;
   animation-delay: 11s;
   &-container {
+    // margin: 0 auto;
     // width: 414px;
     // height: 676px;
     justify-content: center;
@@ -19,7 +20,7 @@
     }
     &__logo {
       animation: fadein 4s;
-      top: 200px;
+      top: 100px;
       height: 120px;
       position: absolute;
       -webkit-filter: drop-shadow(5px 5px 5px #222);

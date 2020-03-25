@@ -103,7 +103,7 @@ export default class Profile extends Component {
         </section>
       );
     } else {
-      return <h1>Loading...</h1>;
+      return <div className="sizing"></div>;
     }
   }
 }

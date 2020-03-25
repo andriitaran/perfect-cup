@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import PerfectCup from "../assets/icons/perfect_cup_white.svg";
+import PerfectCup from "../assets/icons/discover.svg";
 import Video from "../assets/video/video.mp4";
 
 export default class Welcome extends Component {
@@ -34,6 +34,7 @@ export default class Welcome extends Component {
           </video>
           {this.state.renderLogo && (
             <>
+              <img className="welcome-container__logo" src={PerfectCup} />
               <span className="welcome-container__header">Perfect Cup</span>
             </>
           )}

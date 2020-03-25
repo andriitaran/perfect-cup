@@ -1,15 +1,10 @@
-// a {
-//   // &.active {
-//   //   color: orange !important;
-//   // }
-// }
-
 .navigation {
   .active span {
     color: orange;
   }
+
   &__container {
-    margin: 0 auto;
+    // margin: 0 auto;
     width: 414px;
     height: 60px;
     background: $black;

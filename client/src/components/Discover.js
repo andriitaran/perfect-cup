@@ -7,7 +7,7 @@ import {
   InfoWindow
 } from "react-google-maps";
 import axios from "axios";
-import Logo from "../assets/images/498476-coffee/svg/001-coffee-shop-1.svg";
+import Logo from "../assets/icons/discover.svg";
 import mapStyles from "./mapStyles";
 
 const API_KEY = "AIzaSyDLHZ1Lo_XuPCfpADmL7kaPQBg0IRLR6oE";
@@ -57,7 +57,7 @@ class Discover extends Component {
               });
             }}
             icon={{
-              url: "https://image.flaticon.com/icons/svg/90/90619.svg",
+              url: `${Logo}`,
               scaledSize: new window.google.maps.Size(25, 25)
             }}
           />

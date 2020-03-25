@@ -62,7 +62,6 @@ a {
 }
 
 .navigation__container {
-  margin: 0 auto;
   width: 414px;
   height: 60px;
   background: #333333;
@@ -165,7 +164,7 @@ a {
 .welcome-container__logo {
   -webkit-animation: fadein 4s;
           animation: fadein 4s;
-  top: 200px;
+  top: 100px;
   height: 120px;
   position: absolute;
   -webkit-filter: drop-shadow(5px 5px 5px #222);
@@ -222,6 +221,8 @@ a {
 }
 
 .profile {
+  -webkit-animation: fade-slide-down 0.5s 0s ease-in-out forwards;
+          animation: fade-slide-down 0.5s 0s ease-in-out forwards;
   color: #333333;
 }
 
@@ -353,6 +354,11 @@ a {
   padding-left: 68px;
 }
 
+.selection {
+  -webkit-animation: fade-slide-down 0.5s 0s ease-in-out forwards;
+          animation: fade-slide-down 0.5s 0s ease-in-out forwards;
+}
+
 .selection-container {
   padding: 36px 24px 24px 24px;
   width: 414px;
@@ -411,12 +417,39 @@ a {
   height: 140px;
 }
 
+@-webkit-keyframes fade-slide-down {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-2rem);
+            transform: translateX(-2rem);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+@keyframes fade-slide-down {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-2rem);
+            transform: translateX(-2rem);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
 .pourover {
   color: #333333;
+  -webkit-animation: fade-slide-down 0.5s 0s ease-in-out forwards;
+          animation: fade-slide-down 0.5s 0s ease-in-out forwards;
 }
 
 .pourover-container {
-  margin: 0 auto;
   padding: 36px 24px 24px 24px;
   width: 414px;
   max-height: 676px;
@@ -685,21 +718,13 @@ a {
   height: 400px;
 }
 
-@keyframes fadeout {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
 .frenchpress {
   color: #333333;
+  -webkit-animation: fade-slide-down 0.5s 0s ease-in-out forwards;
+          animation: fade-slide-down 0.5s 0s ease-in-out forwards;
 }
 
 .frenchpress-container {
-  margin: 0 auto;
   padding: 36px 24px 24px 24px;
   width: 414px;
   max-height: 676px;
@@ -969,15 +994,6 @@ a {
   height: 400px;
 }
 
-@keyframes fadeout {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
 .brew {
   color: #333333;
 }
@@ -1051,6 +1067,8 @@ a {
 
 .discover {
   color: #333333;
+  -webkit-animation: fade-slide-down 0.5s 0s ease-in-out forwards;
+          animation: fade-slide-down 0.5s 0s ease-in-out forwards;
 }
 
 .discover-container {

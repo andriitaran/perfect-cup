@@ -48,6 +48,14 @@ export default class PourOver extends Component {
       { text: step5, time: 60000 },
       { text: step6, time: 5000 },
       { text: step7, time: 30000 }
+
+      // { text: step1, time: 3000 },
+      // { text: step2, time: 3000 },
+      // { text: step3, time: 3000 },
+      // { text: step4, time: 3000 },
+      // { text: step5, time: 3000 },
+      // { text: step6, time: 3000 },
+      // { text: step7, time: 3000 }
     ];
 
     this.setState(
@@ -251,12 +259,8 @@ export default class PourOver extends Component {
     let countdown = () =>
       setInterval(() => {
         duration--;
-        if (duration > 0 && duration < 10) {
-          counter = "0:0" + duration;
-        } else if (duration > 0 && duration <= 60) {
-          counter = "0:" + duration;
-        } else if (duration > 0 && duration > 60) {
-          counter = "01:0" + (duration % 60);
+        if (duration > 0) {
+          counter = millisToMinutesAndSeconds(duration * 1000);
         } else {
           clearInterval(duration);
         }

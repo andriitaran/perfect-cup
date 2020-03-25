@@ -1,6 +1,8 @@
 .profile {
+  animation: fade-slide-down 0.5s 0s ease-in-out forwards;
   color: $black;
   &-container {
+    // margin: 0 auto;
     padding: 36px 24px 0px 24px;
     width: 414px;
     height: 676px;
