@@ -57,15 +57,20 @@ a {
   }
 }
 
+.navigation {
+  min-width: 414px;
+  height: 60px;
+}
+
 .navigation .active span {
   color: orange;
 }
 
 .navigation__container {
+  margin: 0 auto;
   width: 414px;
   height: 60px;
   background: #333333;
-  position: fixed;
 }
 
 .navigation__buttons {
@@ -136,6 +141,7 @@ a {
 }
 
 .welcome-container {
+  margin: 0 auto;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -227,6 +233,7 @@ a {
 }
 
 .profile-container {
+  margin: 0 auto;
   padding: 36px 24px 0px 24px;
   width: 414px;
   height: 676px;
@@ -360,6 +367,7 @@ a {
 }
 
 .selection-container {
+  margin: 0 auto;
   padding: 36px 24px 24px 24px;
   width: 414px;
   height: 676px;
@@ -450,6 +458,7 @@ a {
 }
 
 .pourover-container {
+  margin: 0 auto;
   padding: 36px 24px 24px 24px;
   width: 414px;
   max-height: 676px;
@@ -725,6 +734,7 @@ a {
 }
 
 .frenchpress-container {
+  margin: 0 auto;
   padding: 36px 24px 24px 24px;
   width: 414px;
   max-height: 676px;
@@ -996,9 +1006,12 @@ a {
 
 .brew {
   color: #333333;
+  -webkit-animation: fade-slide-down 0.5s 0s ease-in-out forwards;
+          animation: fade-slide-down 0.5s 0s ease-in-out forwards;
 }
 
 .brew-container {
+  margin: 0 auto;
   padding: 36px 24px 24px 24px;
   width: 414px;
   height: 676px;
@@ -1072,6 +1085,7 @@ a {
 }
 
 .discover-container {
+  margin: 0 auto;
   padding: 36px 24px 24px 24px;
   width: 414px;
   height: 676px;

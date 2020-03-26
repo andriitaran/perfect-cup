@@ -14,24 +14,31 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import AnimatedProgressProvider from "./AnimatedProgressProvider";
 
 export default class FrenchPress extends Component {
-  state = {
-    waterAmount: 220, // choose 220ml, 300ml or 350ml
-    ratio: 17, // choose 1:16, 1:17 or 1:18
-    coffeeActive: false,
-    waterActive: false,
-    brewingActive: false,
-    brewingSteps: [],
-    brewingStep: "",
-    brewingStepDuration: 0,
-    animating: false,
-    feedback: false,
-    strong: false,
-    weak: false,
-    bitter: false,
-    perfect: false
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      waterAmount: 220, // choose 220ml, 300ml or 350ml
+      ratio: 17, // choose 1:16, 1:17 or 1:18
+      coffeeActive: false,
+      waterActive: false,
+      brewingActive: false,
+      brewingSteps: [],
+      brewingStep: "",
+      brewingStepDuration: 0,
+      animating: false,
+      feedback: false,
+      strong: false,
+      weak: false,
+      bitter: false,
+      perfect: false
+    };
+    this.myTimeout = null;
+  }
 
   setSteps = () => {
+    if (this.myTimeout != null) {
+      clearTimeout(this.myTimeout);
+    }
     const step1 = "Let's brew some coffee!";
     const step2 = `Put 
     ${this.coffeeAmount()} g
@@ -65,7 +72,6 @@ export default class FrenchPress extends Component {
 
   startBrew = () => {
     let stepNum = 0;
-    let myTimeout;
     let run = () => {
       if (stepNum < this.state.brewingSteps.length) {
         this.setState({
@@ -75,7 +81,7 @@ export default class FrenchPress extends Component {
         });
 
         // step timeout
-        myTimeout = setTimeout(() => {
+        this.myTimeout = setTimeout(() => {
           this.setState({
             animating: false
           });
@@ -83,7 +89,7 @@ export default class FrenchPress extends Component {
           run();
         }, this.state.brewingSteps[stepNum].time);
       } else {
-        clearTimeout(myTimeout);
+        clearTimeout(this.myTimeout);
         this.setState({
           feedback: true
         });
@@ -92,7 +98,8 @@ export default class FrenchPress extends Component {
 
     if (this.state.brewingActive) {
       this.setState({
-        brewingActive: false
+        brewingActive: false,
+        animating: false
       });
     } else {
       this.setState({

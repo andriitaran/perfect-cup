@@ -13,24 +13,31 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import AnimatedProgressProvider from "./AnimatedProgressProvider";
 
 export default class PourOver extends Component {
-  state = {
-    waterAmount: 220, // choose 220ml, 300ml or 350ml
-    ratio: 17, // choose 1:16, 1:17 or 1:18
-    coffeeActive: false,
-    waterActive: false,
-    brewingActive: false,
-    brewingSteps: [],
-    brewingStep: "",
-    brewingStepDuration: 0,
-    animating: false,
-    feedback: false,
-    strong: false,
-    weak: false,
-    bitter: false,
-    perfect: false
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      waterAmount: 220, // choose 220ml, 300ml or 350ml
+      ratio: 17, // choose 1:16, 1:17 or 1:18
+      coffeeActive: false,
+      waterActive: false,
+      brewingActive: false,
+      brewingSteps: [],
+      brewingStep: "",
+      brewingStepDuration: 0,
+      animating: false,
+      feedback: false,
+      strong: false,
+      weak: false,
+      bitter: false,
+      perfect: false
+    };
+    this.myTimeout = null;
+  }
 
   setSteps = () => {
+    if (this.myTimeout != null) {
+      clearTimeout(this.myTimeout);
+    }
     const step1 = "Let's brew some coffee!";
     const step2 = `Put 
     ${this.coffeeAmount()} g
@@ -41,21 +48,21 @@ export default class PourOver extends Component {
     const step6 = "Give brewer a gentle swirl";
     const step7 = "Let the water drain through and serve";
     const arr = [
-      { text: step1, time: 5000 },
-      { text: step2, time: 15000 },
-      { text: step3, time: 15000 },
-      { text: step4, time: 30000 },
-      { text: step5, time: 60000 },
-      { text: step6, time: 5000 },
-      { text: step7, time: 30000 }
+      // { text: step1, time: 5000 },
+      // { text: step2, time: 15000 },
+      // { text: step3, time: 15000 },
+      // { text: step4, time: 30000 },
+      // { text: step5, time: 60000 },
+      // { text: step6, time: 5000 },
+      // { text: step7, time: 30000 }
 
-      // { text: step1, time: 3000 },
-      // { text: step2, time: 3000 },
-      // { text: step3, time: 3000 },
-      // { text: step4, time: 3000 },
-      // { text: step5, time: 3000 },
-      // { text: step6, time: 3000 },
-      // { text: step7, time: 3000 }
+      { text: step1, time: 3000 },
+      { text: step2, time: 3000 },
+      { text: step3, time: 3000 },
+      { text: step4, time: 3000 },
+      { text: step5, time: 3000 },
+      { text: step6, time: 3000 },
+      { text: step7, time: 3000 }
     ];
 
     this.setState(
@@ -68,7 +75,6 @@ export default class PourOver extends Component {
 
   startBrew = () => {
     let stepNum = 0;
-    let myTimeout;
     let run = () => {
       if (stepNum < this.state.brewingSteps.length) {
         this.setState({
@@ -78,7 +84,7 @@ export default class PourOver extends Component {
         });
 
         // step timeout
-        myTimeout = setTimeout(() => {
+        this.myTimeout = setTimeout(() => {
           this.setState({
             animating: false
           });
@@ -86,7 +92,7 @@ export default class PourOver extends Component {
           run();
         }, this.state.brewingSteps[stepNum].time);
       } else {
-        clearTimeout(myTimeout);
+        clearTimeout(this.myTimeout);
         this.setState({
           feedback: true
         });
@@ -95,7 +101,8 @@ export default class PourOver extends Component {
 
     if (this.state.brewingActive) {
       this.setState({
-        brewingActive: false
+        brewingActive: false,
+        animating: false
       });
     } else {
       this.setState({

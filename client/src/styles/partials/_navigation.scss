@@ -1,14 +1,15 @@
 .navigation {
+  min-width: 414px;
+  height: 60px;
   .active span {
     color: orange;
   }
 
   &__container {
-    // margin: 0 auto;
+    margin: 0 auto;
     width: 414px;
     height: 60px;
     background: $black;
-    position: fixed;
   }
   &__buttons {
     display: flex;
