@@ -24,6 +24,8 @@ GENERAL FUNCTIONALITY :
 
 Click on the brew method you'd like to use in PREPARE section(components are very modular and will allow adding other brewing methods in future in matter of minutes). Choose the amount of coffee you’d like to make - small, medium or large and it will automatically update how much ground coffee you need. And when you click on the ground coffee it will show you preset ratios that will allow you to customize the coffee to your taste. Steps at the bottom of the page are for reference. Click on the icon to start a brewing process. At the end of the brewing process you will be prompted to choose preset options. Clicking on save button will POST brewing data and redirect user to profile page. Profile page will display brew data for all brews. Clicking on a specific brew will load data of that brew with reccomendations provided by the application. DISCOVER page contains a list of currated specialy coffee shops and dispalys them on map. Clicking on a specific coffee shop marker will load basic information about the shop.
 
+TECH STACK : React, Node, Express, MongoDB
+
 FUTURE UPDATES :
 
-Migrating database to MongoDB, deployment via Heroku, user authorization/authentication.
+Deployment via Heroku, user authorization/authentication.
