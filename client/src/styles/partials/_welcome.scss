@@ -27,9 +27,8 @@
       filter: drop-shadow(5px 5px 5px #222);
     }
     &__header {
-      // font-family: "Permanent Marker", cursive;
-      // font-size: 64px;
       @include header(64px, 40px);
+      color: $white;
       top: 250px;
       animation: fadein 4s;
       color: white;

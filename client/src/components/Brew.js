@@ -43,7 +43,7 @@ export default class Brew extends Component {
       image = (
         <div className="brew-container__circle">
           <img
-            className="brew-container__circle--img"
+            className="brew-container__circle--img-frenchpress"
             src={FrenchPressLogo}
             alt="method"
           />

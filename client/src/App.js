@@ -1,17 +1,11 @@
 import React, { Component } from "react";
 import "./styles/main.css";
-import {
-  BrowserRouter as Router,
-  Redirect,
-  Route,
-  Switch,
-  Link
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Welcome from "./components/Welcome";
 import Profile from "./components/Profile";
 import Brew from "./components/Brew";
-import Selection from "./components/Selection";
+import Prepare from "./components/Prepare";
 import PourOver from "./components/PourOver";
 import FrenchPress from "./components/FrenchPress";
 import Discover from "./components/Discover";
@@ -35,7 +29,7 @@ export default class App extends Component {
             exact
             render={props => (
               <>
-                <Selection />
+                <Prepare />
                 <Navigation />
               </>
             )}

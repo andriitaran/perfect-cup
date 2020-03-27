@@ -3,7 +3,7 @@ import axios from "axios";
 import moment from "moment";
 import { Link } from "react-router-dom";
 import ProfileLogo from "../assets/icons/profile_logo.svg";
-// import ProfileLogo from "../assets/images/498476-coffee/svg/008-coffee-cup-2.svg";
+
 import PourOverLogo from "../assets/images/498476-coffee/svg/010-coffee-pot-1.svg";
 import FrenchPressLogo from "../assets/images/498476-coffee/svg/023-kettle.svg";
 

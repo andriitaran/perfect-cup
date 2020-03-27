@@ -57,11 +57,6 @@ a {
   }
 }
 
-.navigation {
-  min-width: 414px;
-  height: 60px;
-}
-
 .navigation .active span {
   color: orange;
 }
@@ -181,6 +176,7 @@ a {
   font-family: Avenir Bold;
   font-size: 64px;
   line-height: 40px;
+  color: #fafafa;
   top: 250px;
   -webkit-animation: fadein 4s;
           animation: fadein 4s;
@@ -233,6 +229,7 @@ a {
 }
 
 .profile-container {
+  background: #fafafa;
   margin: 0 auto;
   padding: 36px 24px 0px 24px;
   width: 414px;
@@ -361,12 +358,13 @@ a {
   padding-left: 68px;
 }
 
-.selection {
+.prepare {
   -webkit-animation: fade-slide-down 0.5s 0s ease-in-out forwards;
           animation: fade-slide-down 0.5s 0s ease-in-out forwards;
 }
 
-.selection-container {
+.prepare-container {
+  background: #fafafa;
   margin: 0 auto;
   padding: 36px 24px 24px 24px;
   width: 414px;
@@ -388,7 +386,7 @@ a {
       flex-wrap: wrap;
 }
 
-.selection-container__header {
+.prepare-container__header {
   font-family: Avenir Bold;
   font-size: 36px;
   line-height: 40px;
@@ -396,7 +394,7 @@ a {
   color: #333333;
 }
 
-.selection-container__pourover, .selection-container__frenchpress {
+.prepare-container__pourover, .prepare-container__frenchpress {
   width: 183px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -413,7 +411,7 @@ a {
           align-items: center;
 }
 
-.selection-container__pourover--text, .selection-container__frenchpress--text {
+.prepare-container__pourover--text, .prepare-container__frenchpress--text {
   margin-top: 24px;
   font-family: Avenir Demi Bold;
   font-size: 24px;
@@ -421,7 +419,7 @@ a {
   color: #333333;
 }
 
-.selection-container__pourover--img, .selection-container__frenchpress--img {
+.prepare-container__pourover--img, .prepare-container__frenchpress--img {
   height: 140px;
 }
 
@@ -458,6 +456,8 @@ a {
 }
 
 .pourover-container {
+  background: #fafafa;
+  overflow: hidden;
   margin: 0 auto;
   padding: 36px 24px 24px 24px;
   width: 414px;
@@ -734,6 +734,8 @@ a {
 }
 
 .frenchpress-container {
+  overflow: hidden;
+  background: #fafafa;
   margin: 0 auto;
   padding: 36px 24px 24px 24px;
   width: 414px;
@@ -1011,6 +1013,7 @@ a {
 }
 
 .brew-container {
+  background: #fafafa;
   margin: 0 auto;
   padding: 36px 24px 24px 24px;
   width: 414px;
@@ -1060,6 +1063,11 @@ a {
   height: 140px;
 }
 
+.brew-container__circle--img-frenchpress {
+  padding-left: 16px;
+  padding-bottom: 8px;
+}
+
 .brew-container__brewinfo {
   width: 100%;
   display: -webkit-box;
@@ -1085,6 +1093,7 @@ a {
 }
 
 .discover-container {
+  background: #fafafa;
   margin: 0 auto;
   padding: 36px 24px 24px 24px;
   width: 414px;

@@ -4,7 +4,6 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import uuid from "uuid";
 import axios from "axios";
-import Button from "@material-ui/core/Button";
 import Select from "@material-ui/core/Select";
 import FrenchPressLogo from "../assets/images/498476-coffee/svg/023-kettle.svg";
 import Back from "../assets/images/back.svg";
@@ -52,14 +51,21 @@ export default class FrenchPress extends Component {
       "Put the plunger and press it down until it reaches the top of the coffee";
     const step8 = "Serve and enjoy!";
     const arr = [
-      { text: step1, time: 5000 },
-      { text: step2, time: 15000 },
-      { text: step3, time: 15000 },
-      { text: step4, time: 240000 },
-      { text: step5, time: 10000 },
-      { text: step6, time: 300000 },
-      { text: step7, time: 10000 },
-      { text: step8, time: 5000 }
+      // { text: step1, time: 5000 },
+      // { text: step2, time: 15000 },
+      // { text: step3, time: 15000 },
+      // { text: step4, time: 240000 },
+      // { text: step5, time: 10000 },
+      // { text: step6, time: 300000 },
+      // { text: step7, time: 10000 },
+      // { text: step8, time: 5000 }
+      { text: step1, time: 3000 },
+      { text: step2, time: 3000 },
+      { text: step3, time: 3000 },
+      { text: step4, time: 3000 },
+      { text: step5, time: 3000 },
+      { text: step6, time: 3000 },
+      { text: step7, time: 3000 }
     ];
 
     this.setState(

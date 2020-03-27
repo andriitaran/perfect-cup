@@ -25,17 +25,12 @@ class Discover extends Component {
       url: `http://localhost:5000/shops`,
       headers: { "Access-Control-Allow-Origin": "*" }
     }).then(res => {
-      console.log(res.data);
       this.setState({
         shops: res.data,
         loading: true
       });
     });
   }
-
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   return this.state.selectedShop !== nextState.selectedShop;
-  // }
 
   Map = () => {
     return (
@@ -46,7 +41,7 @@ class Discover extends Component {
       >
         {this.state.shops.map(shop => (
           <Marker
-            key={shop.recordid}
+            key={shop.id}
             position={{
               lat: shop.lat,
               lng: shop.lng
@@ -77,6 +72,7 @@ class Discover extends Component {
           >
             <div className="discover-container__map--window">
               <img
+                alt="marker"
                 className="discover-container__map--window-img"
                 src={this.state.selectedShop.image}
               />

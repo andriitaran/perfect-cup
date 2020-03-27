@@ -2,6 +2,8 @@
   color: $black;
   animation: fade-slide-down 0.5s 0s ease-in-out forwards;
   &-container {
+    background: $white;
+    overflow: hidden;
     margin: 0 auto;
     padding: 36px 24px 24px 24px;
     width: 414px;
