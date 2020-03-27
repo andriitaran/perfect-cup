@@ -1,26 +1,22 @@
 const express = require("express");
 const router = express.Router();
-const helper = require("../../helper/helper");
-
-const dataFile = __dirname + "/../../models/data.json";
-const data = require(dataFile);
+const mongoose = require("mongoose");
+const Data = require("../../models/data");
 
 //route for getting data
 router.get("/", (req, res) => {
-  return res.send(
-    data.map(brewData => {
-      return (brewData = {
-        id: brewData.id,
-        date: brewData.date,
-        method: brewData.method,
-        ratio: brewData.ratio,
-        grind: brewData.grind,
-        coffee: brewData.coffee,
-        water: brewData.water,
-        notes: brewData.notes
-      });
+  Data.find()
+    .exec()
+    .then(brewData => {
+      console.log(brewData);
+      res.status(200).json(brewData);
     })
-  );
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({
+        error: err
+      });
+    });
 });
 
 //add brewData route
@@ -40,8 +36,8 @@ router.post("/", (req, res) => {
     notes = "You didn't provide any feedback";
   }
 
-  const newBrewData = {
-    id: req.body.id,
+  const newBrewData = new Data({
+    _id: new mongoose.Types.ObjectId(),
     date: req.body.date,
     method: req.body.method,
     ratio: req.body.ratio,
@@ -49,10 +45,17 @@ router.post("/", (req, res) => {
     coffee: req.body.coffee,
     water: req.body.water,
     notes: notes
-  };
-  data.push(newBrewData); //pushes new brewData into an existing array
-  helper.writeJSONFile(dataFile, data); //writes new array of elements to JSON
-  res.json(data); //return a new array of elements
+  });
+
+  newBrewData
+    .save()
+    .then(res => {
+      console.log(res);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  res.json(newBrewData);
 });
 
 module.exports = router;

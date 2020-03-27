@@ -41,10 +41,10 @@ class Discover extends Component {
       >
         {this.state.shops.map(shop => (
           <Marker
-            key={shop.id}
+            key={shop._id}
             position={{
-              lat: shop.lat,
-              lng: shop.lng
+              lat: shop.geom.coordinates[1],
+              lng: shop.geom.coordinates[0]
             }}
             onClick={() => {
               this.setState({

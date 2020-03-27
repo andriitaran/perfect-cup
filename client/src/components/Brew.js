@@ -17,7 +17,7 @@ export default class Brew extends Component {
       headers: { "Access-Control-Allow-Origin": "*" }
     }).then(res => {
       const brew = res.data.find(brew => {
-        return brew.id === this.props.match.params.id;
+        return brew.id === this.props.match.params._id;
       });
       this.setState({
         selectedBrew: brew

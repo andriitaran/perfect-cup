@@ -3,6 +3,14 @@ const app = express();
 require("dotenv").config();
 const { PORT, BACKEND_URL } = process.env;
 const cors = require("cors");
+const mongoose = require("mongoose");
+
+mongoose.connect(
+  "mongodb+srv://andriicodes:" +
+    process.env.MONGO_ATLAS_PW +
+    "@perfect-cup-v776a.mongodb.net/test?retryWrites=true&w=majority",
+  { useMongoClient: true }
+);
 
 app.use(cors());
 app.use(express.json());
