@@ -9,21 +9,17 @@ import Prepare from "./components/Prepare";
 import PourOver from "./components/PourOver";
 import FrenchPress from "./components/FrenchPress";
 import Discover from "./components/Discover";
+import Register from "./components/Register";
+import Login from "./components/Login";
 
 export default class App extends Component {
   render() {
     return (
       <Router>
         <Switch>
-          <Route
-            path="/"
-            exact
-            render={props => (
-              <>
-                <Welcome />
-              </>
-            )}
-          />
+          <Route path="/" exact render={props => <Welcome />} />
+          <Route path="/register" exact render={props => <Register />} />
+          <Route path="/login" exact render={props => <Login />} />
           <Route
             path="/prepare"
             exact

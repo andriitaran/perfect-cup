@@ -2,10 +2,11 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const Data = require("../../models/data");
+const verify = require("./verifyToken");
 
 //route for getting data
-router.get("/", (req, res) => {
-  Data.find()
+router.get("/", verify, (req, res) => {
+  Data.find({ userid: req.user._id })
     .exec()
     .then(brewData => {
       console.log(brewData);
@@ -20,7 +21,7 @@ router.get("/", (req, res) => {
 });
 
 //add brewData route
-router.post("/", (req, res) => {
+router.post("/", verify, (req, res) => {
   let notes = "";
   if (req.body.notes.bitter && req.body.notes.strong) {
     notes = "Coffee was too strong & bitter";
@@ -37,6 +38,7 @@ router.post("/", (req, res) => {
   }
 
   const newBrewData = new Data({
+    userid: req.user._id,
     _id: new mongoose.Types.ObjectId(),
     date: req.body.date,
     method: req.body.method,
