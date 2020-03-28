@@ -17,7 +17,10 @@ export default class Profile extends Component {
     axios({
       method: "get",
       url: `http://localhost:5000/data`,
-      headers: { "Access-Control-Allow-Origin": "*" }
+      headers: {
+        "auth-token": `${sessionStorage.getItem("authToken")}`,
+        "Access-Control-Allow-Origin": "*"
+      }
     }).then(res => {
       let brewData = res.data;
       brewData.sort((a, b) => (b.date > a.date ? 1 : a.date > b.date ? -1 : 0));
@@ -49,7 +52,7 @@ export default class Profile extends Component {
         );
       }
       return (
-        <Link to={`/profile/brews/${brew.id}`} key={brew.id}>
+        <Link to={`/profile/brews/${brew._id}`} key={brew._id}>
           <div className="profile-container__brew">
             <span className="profile-container__brew--date">
               {moment(`${brew.date}`).format("MMMM Do, YYYY")}

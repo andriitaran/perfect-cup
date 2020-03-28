@@ -1,55 +1,22 @@
 export default [
   {
-    featureType: "all",
-    elementType: "all",
-    stylers: [
-      {
-        color: "#ff7000"
-      },
-      {
-        lightness: "69"
-      },
-      {
-        saturation: "100"
-      },
-      {
-        weight: "1.17"
-      },
-      {
-        gamma: "2.04"
-      }
-    ]
-  },
-  {
-    featureType: "all",
+    featureType: "water",
     elementType: "geometry",
     stylers: [
       {
-        color: "#cb8536"
+        color: "#d3d3d3"
+      },
+      {
+        lightness: 17
       }
     ]
   },
   {
-    featureType: "all",
-    elementType: "labels",
+    featureType: "landscape",
+    elementType: "geometry",
     stylers: [
       {
-        color: "#ffb471"
-      },
-      {
-        lightness: "66"
-      },
-      {
-        saturation: "100"
-      }
-    ]
-  },
-  {
-    featureType: "all",
-    elementType: "labels.text.fill",
-    stylers: [
-      {
-        gamma: 0.01
+        color: "#f5f5f5"
       },
       {
         lightness: 20
@@ -57,59 +24,53 @@ export default [
     ]
   },
   {
-    featureType: "all",
-    elementType: "labels.text.stroke",
+    featureType: "road.highway",
+    elementType: "geometry.fill",
     stylers: [
       {
-        saturation: -31
+        color: "#ffffff"
       },
       {
-        lightness: -33
-      },
-      {
-        weight: 2
-      },
-      {
-        gamma: 0.8
+        lightness: 17
       }
     ]
   },
   {
-    featureType: "all",
-    elementType: "labels.icon",
+    featureType: "road.highway",
+    elementType: "geometry.stroke",
     stylers: [
       {
-        visibility: "off"
+        color: "#ffffff"
+      },
+      {
+        lightness: 29
+      },
+      {
+        weight: 0.2
       }
     ]
   },
   {
-    featureType: "landscape",
-    elementType: "all",
-    stylers: [
-      {
-        lightness: "-8"
-      },
-      {
-        gamma: "0.98"
-      },
-      {
-        weight: "2.45"
-      },
-      {
-        saturation: "26"
-      }
-    ]
-  },
-  {
-    featureType: "landscape",
+    featureType: "road.arterial",
     elementType: "geometry",
     stylers: [
       {
-        lightness: 30
+        color: "#ffffff"
       },
       {
-        saturation: 30
+        lightness: 18
+      }
+    ]
+  },
+  {
+    featureType: "road.local",
+    elementType: "geometry",
+    stylers: [
+      {
+        color: "#ffffff"
+      },
+      {
+        lightness: 16
       }
     ]
   },
@@ -118,7 +79,10 @@ export default [
     elementType: "geometry",
     stylers: [
       {
-        saturation: 20
+        color: "#f5f5f5"
+      },
+      {
+        lightness: 21
       }
     ]
   },
@@ -127,46 +91,85 @@ export default [
     elementType: "geometry",
     stylers: [
       {
-        lightness: 20
+        color: "#dedede"
       },
       {
-        saturation: -20
+        lightness: 21
       }
     ]
   },
   {
-    featureType: "road",
+    elementType: "labels.text.stroke",
+    stylers: [
+      {
+        visibility: "on"
+      },
+      {
+        color: "#ffffff"
+      },
+      {
+        lightness: 16
+      }
+    ]
+  },
+  {
+    elementType: "labels.text.fill",
+    stylers: [
+      {
+        saturation: 36
+      },
+      {
+        color: "#333333"
+      },
+      {
+        lightness: 40
+      }
+    ]
+  },
+  {
+    elementType: "labels.icon",
+    stylers: [
+      {
+        visibility: "off"
+      }
+    ]
+  },
+  {
+    featureType: "transit",
     elementType: "geometry",
     stylers: [
       {
-        lightness: 10
+        color: "#f2f2f2"
       },
       {
-        saturation: -30
+        lightness: 19
       }
     ]
   },
   {
-    featureType: "road",
+    featureType: "administrative",
+    elementType: "geometry.fill",
+    stylers: [
+      {
+        color: "#fefefe"
+      },
+      {
+        lightness: 20
+      }
+    ]
+  },
+  {
+    featureType: "administrative",
     elementType: "geometry.stroke",
     stylers: [
       {
-        saturation: 25
+        color: "#fefefe"
       },
       {
-        lightness: 25
-      }
-    ]
-  },
-  {
-    featureType: "water",
-    elementType: "all",
-    stylers: [
-      {
-        lightness: -20
+        lightness: 17
       },
       {
-        color: "#ecc080"
+        weight: 1.2
       }
     ]
   }

@@ -25,12 +25,25 @@ class Discover extends Component {
       url: `http://localhost:5000/shops`,
       headers: { "Access-Control-Allow-Origin": "*" }
     }).then(res => {
+      console.log(res.data);
       this.setState({
         shops: res.data,
         loading: true
       });
     });
   }
+
+  titleCase = str => {
+    var splitStr = str.toLowerCase().split(" ");
+    for (var i = 0; i < splitStr.length; i++) {
+      // You do not need to check if i is larger than splitStr length, as your for does that for you
+      // Assign it back to the array
+      splitStr[i] =
+        splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
+    }
+    // Directly return the joined string
+    return splitStr.join(" ");
+  };
 
   Map = () => {
     return (
@@ -61,8 +74,8 @@ class Discover extends Component {
           <InfoWindow
             className="info-window"
             position={{
-              lat: this.state.selectedShop.lat,
-              lng: this.state.selectedShop.lng
+              lat: this.state.selectedShop.geom.coordinates[1],
+              lng: this.state.selectedShop.geom.coordinates[0]
             }}
             onCloseClick={() => {
               this.setState({
@@ -77,10 +90,12 @@ class Discover extends Component {
                 src={this.state.selectedShop.image}
               />
               <span className="discover-container__map--window-header">
-                {this.state.selectedShop.name}
+                {this.state.selectedShop.businesstradename}
               </span>
               <span className="discover-container__map--window-address">
-                {this.state.selectedShop.address}
+                {this.state.selectedShop.house +
+                  " " +
+                  this.titleCase(this.state.selectedShop.street)}
               </span>
               <span className="discover-container__map--window-hours">
                 {this.state.selectedShop.hours}

@@ -14,11 +14,16 @@ export default class Brew extends Component {
     axios({
       method: "get",
       url: `http://localhost:5000/data`,
-      headers: { "Access-Control-Allow-Origin": "*" }
+      headers: {
+        "auth-token": `${sessionStorage.getItem("authToken")}`,
+        "Access-Control-Allow-Origin": "*"
+      }
     }).then(res => {
+      console.log(res.data);
       const brew = res.data.find(brew => {
-        return brew.id === this.props.match.params._id;
+        return brew._id === this.props.match.params.id;
       });
+      console.log(brew);
       this.setState({
         selectedBrew: brew
       });

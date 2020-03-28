@@ -3,7 +3,7 @@ const { String } = mongoose.Schema.Types;
 const DataSchema = new mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
   userid: String,
-  date: String,
+  date: Date,
   method: String,
   ratio: String,
   grind: String,

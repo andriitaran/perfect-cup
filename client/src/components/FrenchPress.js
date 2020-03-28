@@ -65,7 +65,8 @@ export default class FrenchPress extends Component {
       { text: step4, time: 3000 },
       { text: step5, time: 3000 },
       { text: step6, time: 3000 },
-      { text: step7, time: 3000 }
+      { text: step7, time: 3000 },
+      { text: step8, time: 3000 }
     ];
 
     this.setState(
@@ -163,6 +164,10 @@ export default class FrenchPress extends Component {
     axios({
       method: "post",
       url: `http://localhost:5000/data`,
+      headers: {
+        "auth-token": `${sessionStorage.getItem("authToken")}`,
+        "Access-Control-Allow-Origin": "*"
+      },
       data: {
         id: brew.id,
         date: brew.date,

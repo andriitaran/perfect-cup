@@ -1,0 +1,80 @@
+.login {
+  animation: fade-slide-down 0.5s 0s ease-in-out forwards;
+  &-container {
+    margin: 0 auto;
+    background: $white;
+    padding: 36px 24px 24px 24px;
+    width: 414px;
+    height: 736px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__header {
+      @include header(36px, 40px);
+      width: 100%;
+      color: $black;
+    }
+    &__form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 64px;
+      &--name,
+      &--email,
+      &--password {
+        margin-bottom: 8px;
+        @include subheader(20px, 36px);
+        &-input {
+          background-color: #d3d3d3;
+          @include text(14px, 20px);
+          padding-left: 16px;
+          width: 200px;
+          height: 36px;
+          border-radius: 10px;
+          border: none;
+          margin-bottom: 16px;
+          &:focus {
+            outline: none !important;
+          }
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+      &--login {
+        width: 150px;
+        height: 50px;
+        background-color: #ffa64d;
+        margin-top: 8px;
+        margin-bottom: 16px;
+        margin-right: 8px;
+        @include text(16px, 20px);
+        border-radius: 50px;
+        border: none;
+        &:focus {
+          outline: none;
+        }
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+    &__register {
+      align-self: center;
+      width: 150px;
+      height: 50px;
+      background-color: #ffa64d;
+      margin-bottom: 16px;
+      margin-right: 8px;
+      @include text(16px, 20px);
+      border-radius: 50px;
+      border: none;
+      &:focus {
+        outline: none;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

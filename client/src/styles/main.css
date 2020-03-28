@@ -222,6 +222,244 @@ a {
   }
 }
 
+.register {
+  -webkit-animation: fade-slide-down 0.5s 0s ease-in-out forwards;
+          animation: fade-slide-down 0.5s 0s ease-in-out forwards;
+}
+
+.register-container {
+  margin: 0 auto;
+  background: #fafafa;
+  padding: 36px 24px 24px 24px;
+  width: 414px;
+  height: 736px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.register-container__header {
+  font-family: Avenir Bold;
+  font-size: 36px;
+  line-height: 40px;
+  width: 100%;
+  color: #333333;
+}
+
+.register-container__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 64px;
+}
+
+.register-container__form--name, .register-container__form--email, .register-container__form--password {
+  margin-bottom: 8px;
+  font-family: Avenir Demi Bold;
+  font-size: 20px;
+  line-height: 36px;
+}
+
+.register-container__form--name-input, .register-container__form--email-input, .register-container__form--password-input {
+  background-color: #d3d3d3;
+  font-family: Avenir Regular;
+  font-size: 14px;
+  line-height: 20px;
+  padding-left: 16px;
+  width: 200px;
+  height: 36px;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 16px;
+}
+
+.register-container__form--name-input:focus, .register-container__form--email-input:focus, .register-container__form--password-input:focus {
+  outline: none !important;
+}
+
+.register-container__form--name-input:hover, .register-container__form--email-input:hover, .register-container__form--password-input:hover {
+  cursor: pointer;
+}
+
+.register-container__form--register {
+  width: 150px;
+  height: 50px;
+  background-color: #ffa64d;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  margin-right: 8px;
+  font-family: Avenir Regular;
+  font-size: 16px;
+  line-height: 20px;
+  border-radius: 50px;
+  border: none;
+}
+
+.register-container__form--register:focus {
+  outline: none;
+}
+
+.register-container__form--register:hover {
+  cursor: pointer;
+}
+
+.register-container__login {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  width: 150px;
+  height: 50px;
+  background-color: #ffa64d;
+  margin-bottom: 16px;
+  margin-right: 8px;
+  font-family: Avenir Regular;
+  font-size: 16px;
+  line-height: 20px;
+  border-radius: 50px;
+  border: none;
+}
+
+.register-container__login:focus {
+  outline: none;
+}
+
+.register-container__login:hover {
+  cursor: pointer;
+}
+
+.login {
+  -webkit-animation: fade-slide-down 0.5s 0s ease-in-out forwards;
+          animation: fade-slide-down 0.5s 0s ease-in-out forwards;
+}
+
+.login-container {
+  margin: 0 auto;
+  background: #fafafa;
+  padding: 36px 24px 24px 24px;
+  width: 414px;
+  height: 736px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.login-container__header {
+  font-family: Avenir Bold;
+  font-size: 36px;
+  line-height: 40px;
+  width: 100%;
+  color: #333333;
+}
+
+.login-container__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 64px;
+}
+
+.login-container__form--name, .login-container__form--email, .login-container__form--password {
+  margin-bottom: 8px;
+  font-family: Avenir Demi Bold;
+  font-size: 20px;
+  line-height: 36px;
+}
+
+.login-container__form--name-input, .login-container__form--email-input, .login-container__form--password-input {
+  background-color: #d3d3d3;
+  font-family: Avenir Regular;
+  font-size: 14px;
+  line-height: 20px;
+  padding-left: 16px;
+  width: 200px;
+  height: 36px;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 16px;
+}
+
+.login-container__form--name-input:focus, .login-container__form--email-input:focus, .login-container__form--password-input:focus {
+  outline: none !important;
+}
+
+.login-container__form--name-input:hover, .login-container__form--email-input:hover, .login-container__form--password-input:hover {
+  cursor: pointer;
+}
+
+.login-container__form--login {
+  width: 150px;
+  height: 50px;
+  background-color: #ffa64d;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  margin-right: 8px;
+  font-family: Avenir Regular;
+  font-size: 16px;
+  line-height: 20px;
+  border-radius: 50px;
+  border: none;
+}
+
+.login-container__form--login:focus {
+  outline: none;
+}
+
+.login-container__form--login:hover {
+  cursor: pointer;
+}
+
+.login-container__register {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  width: 150px;
+  height: 50px;
+  background-color: #ffa64d;
+  margin-bottom: 16px;
+  margin-right: 8px;
+  font-family: Avenir Regular;
+  font-size: 16px;
+  line-height: 20px;
+  border-radius: 50px;
+  border: none;
+}
+
+.login-container__register:focus {
+  outline: none;
+}
+
+.login-container__register:hover {
+  cursor: pointer;
+}
+
 .profile {
   -webkit-animation: fade-slide-down 0.5s 0s ease-in-out forwards;
           animation: fade-slide-down 0.5s 0s ease-in-out forwards;

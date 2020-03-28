@@ -6,6 +6,7 @@ const verify = require("./verifyToken");
 
 //route for getting data
 router.get("/", verify, (req, res) => {
+  console.log(req.headers);
   Data.find({ userid: req.user._id })
     .exec()
     .then(brewData => {

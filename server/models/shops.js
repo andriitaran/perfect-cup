@@ -7,7 +7,8 @@ const CoffeeShopDataSchema = new mongoose.Schema({
   street: String,
   geom: Object,
   image: String,
-  businesstradename: String
+  businesstradename: String,
+  hours: String
 });
 
 module.exports = mongoose.model("CoffeeShopData", CoffeeShopDataSchema);

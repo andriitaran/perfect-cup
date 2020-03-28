@@ -9,31 +9,55 @@ class Login extends Component {
       method: "post",
       url: `http://localhost:5000/user/login`,
       data: {
-        email: event.email,
-        password: event.password
+        email: event.target.email.value,
+        password: event.target.password.value
       }
     }).then(response => {
-      console.log("Logged in!");
-      window.location.href = "/profile";
+      sessionStorage.setItem("authToken", response.data);
+      window.location.href = "/prepare";
     });
   };
 
   render() {
     return (
-      <>
-        <span>Login</span>
-        <form action="submit" onSubmit={this.handleLogin}>
-          <div>
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required />
+      <section className="login">
+        <div className="login-container">
+          <span className="login-container__header">Login</span>
+          <form
+            className="login-container__form"
+            action="submit"
+            onSubmit={this.handleLogin}
+          >
+            <label className="login-container__form--email" for="email">
+              Email
+            </label>
+            <input
+              className="login-container__form--email-input"
+              type="email"
+              id="email"
+              name="email"
+              required
+            />
 
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required />
-            <button type="submit">Login</button>
-          </div>
-        </form>
-        <Link to="/register">Register</Link>
-      </>
+            <label className="login-container__form--password" for="password">
+              Password
+            </label>
+            <input
+              className="login-container__form--password-input"
+              type="password"
+              id="password"
+              name="password"
+              required
+            />
+            <button className="login-container__form--login" type="submit">
+              Login
+            </button>
+          </form>
+          <Link to="/register">
+            <button className="login-container__register">Register</button>
+          </Link>
+        </div>
+      </section>
     );
   }
 }

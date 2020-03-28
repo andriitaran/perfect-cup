@@ -160,8 +160,11 @@ export default class PourOver extends Component {
     axios({
       method: "post",
       url: `http://localhost:5000/data`,
+      headers: {
+        "auth-token": `${sessionStorage.getItem("authToken")}`,
+        "Access-Control-Allow-Origin": "*"
+      },
       data: {
-        id: brew.id,
         date: brew.date,
         method: brew.method,
         ratio: brew.ratio,

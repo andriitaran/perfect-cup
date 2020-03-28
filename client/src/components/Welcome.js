@@ -16,7 +16,7 @@ export default class Welcome extends Component {
 
   renderMainScreen = () =>
     setTimeout(() => {
-      window.location.href = "/prepare";
+      window.location.href = "/register";
     }, 14000);
 
   render() {
