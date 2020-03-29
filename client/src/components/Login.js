@@ -8,7 +8,7 @@ class Login extends Component {
     event.preventDefault();
     axios({
       method: "post",
-      url: `http://localhost:5000/user/login`,
+      url: `/user/login`,
       data: {
         email: event.target.email.value,
         password: event.target.password.value

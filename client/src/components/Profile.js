@@ -16,7 +16,7 @@ export default class Profile extends Component {
   componentDidMount() {
     axios({
       method: "get",
-      url: `http://localhost:5000/data`,
+      url: `/data`,
       headers: {
         "auth-token": `${sessionStorage.getItem("authToken")}`,
         "Access-Control-Allow-Origin": "*"
