@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import ProfileLogo from "../assets/icons/profile_logo.svg";
 
 class Register extends Component {
   handleRegister = event => {
@@ -22,7 +23,7 @@ class Register extends Component {
     return (
       <section className="register">
         <div className="register-container">
-          <span className="register-container__header">Register</span>
+          <span className="register-container__header">Sign Up</span>
           <form
             className="register-container__form"
             action="submit"
@@ -67,11 +68,14 @@ class Register extends Component {
               className="register-container__form--register"
               type="submit"
             >
-              Register
+              Sign Up
             </button>
           </form>
           <Link to="/login">
-            <button className="register-container__login">Login</button>
+            <img className="register-container__cup" src={ProfileLogo} />
+            <span className="register-container__login">
+              Got an account? Login here!
+            </span>
           </Link>
         </div>
       </section>

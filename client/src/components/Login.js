@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import ProfileLogo from "../assets/icons/profile_logo.svg";
 
 class Login extends Component {
   handleLogin = event => {
@@ -54,7 +55,10 @@ class Login extends Component {
             </button>
           </form>
           <Link to="/register">
-            <button className="login-container__register">Register</button>
+            <img className="login-container__cup" src={ProfileLogo} />
+            <span className="login-container__register">
+              Sign up with email
+            </span>
           </Link>
         </div>
       </section>

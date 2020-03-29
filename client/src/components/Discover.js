@@ -98,7 +98,7 @@ class Discover extends Component {
                   this.titleCase(this.state.selectedShop.street)}
               </span>
               <span className="discover-container__map--window-hours">
-                {this.state.selectedShop.hours}
+                7AM - 8PM
               </span>
             </div>
           </InfoWindow>

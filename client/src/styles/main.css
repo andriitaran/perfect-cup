@@ -240,9 +240,6 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 .register-container__header {
@@ -254,6 +251,7 @@ a {
 }
 
 .register-container__form {
+  color: #fafafa;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -261,10 +259,12 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding-top: 64px;
+  margin-top: 48px;
+  margin-bottom: 48px;
+  padding: 24px;
+  background: #333333;
+  border-radius: 40px;
+  width: 366px;
 }
 
 .register-container__form--name, .register-container__form--email, .register-container__form--password {
@@ -275,16 +275,17 @@ a {
 }
 
 .register-container__form--name-input, .register-container__form--email-input, .register-container__form--password-input {
-  background-color: #d3d3d3;
   font-family: Avenir Regular;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 20px;
-  padding-left: 16px;
-  width: 200px;
+  color: #fafafa;
+  background: #333333;
+  width: 318px;
   height: 36px;
-  border-radius: 10px;
   border: none;
+  border-bottom: 1px solid #fafafa;
   margin-bottom: 16px;
+  padding-bottom: 0;
 }
 
 .register-container__form--name-input:focus, .register-container__form--email-input:focus, .register-container__form--password-input:focus {
@@ -296,15 +297,15 @@ a {
 }
 
 .register-container__form--register {
-  width: 150px;
+  width: 100%;
   height: 50px;
   background-color: #ffa64d;
-  margin-top: 8px;
+  margin-top: 24px;
   margin-bottom: 16px;
   margin-right: 8px;
-  font-family: Avenir Regular;
-  font-size: 16px;
-  line-height: 20px;
+  font-family: Avenir Demi Bold;
+  font-size: 20px;
+  line-height: 36px;
   border-radius: 50px;
   border: none;
 }
@@ -317,28 +318,31 @@ a {
   cursor: pointer;
 }
 
+.register-container__cup {
+  height: 24px;
+  padding-right: 8px;
+}
+
 .register-container__login {
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  width: 150px;
-  height: 50px;
-  background-color: #ffa64d;
-  margin-bottom: 16px;
-  margin-right: 8px;
-  font-family: Avenir Regular;
-  font-size: 16px;
-  line-height: 20px;
-  border-radius: 50px;
-  border: none;
+  margin: 0 auto;
+  padding-top: 48px;
+  font-family: Avenir Demi Bold;
+  font-size: 24px;
+  line-height: 36px;
 }
 
-.register-container__login:focus {
-  outline: none;
-}
-
-.register-container__login:hover {
-  cursor: pointer;
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: #fafafa;
 }
 
 .login {
@@ -359,9 +363,6 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 .login-container__header {
@@ -373,6 +374,7 @@ a {
 }
 
 .login-container__form {
+  color: #fafafa;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -380,10 +382,12 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding-top: 64px;
+  margin-top: 48px;
+  margin-bottom: 48px;
+  padding: 24px;
+  background: #333333;
+  border-radius: 40px;
+  width: 366px;
 }
 
 .login-container__form--name, .login-container__form--email, .login-container__form--password {
@@ -394,20 +398,21 @@ a {
 }
 
 .login-container__form--name-input, .login-container__form--email-input, .login-container__form--password-input {
-  background-color: #d3d3d3;
   font-family: Avenir Regular;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 20px;
-  padding-left: 16px;
-  width: 200px;
+  color: #fafafa;
+  background: #333333;
+  width: 318px;
   height: 36px;
-  border-radius: 10px;
   border: none;
+  border-bottom: 1px solid #fafafa;
   margin-bottom: 16px;
+  padding-bottom: 0;
 }
 
 .login-container__form--name-input:focus, .login-container__form--email-input:focus, .login-container__form--password-input:focus {
-  outline: none !important;
+  outline: none;
 }
 
 .login-container__form--name-input:hover, .login-container__form--email-input:hover, .login-container__form--password-input:hover {
@@ -415,15 +420,15 @@ a {
 }
 
 .login-container__form--login {
-  width: 150px;
+  width: 100%;
   height: 50px;
   background-color: #ffa64d;
-  margin-top: 8px;
+  margin-top: 24px;
   margin-bottom: 16px;
   margin-right: 8px;
-  font-family: Avenir Regular;
-  font-size: 16px;
-  line-height: 20px;
+  font-family: Avenir Demi Bold;
+  font-size: 20px;
+  line-height: 36px;
   border-radius: 50px;
   border: none;
 }
@@ -436,28 +441,18 @@ a {
   cursor: pointer;
 }
 
+.login-container__cup {
+  padding-left: 48px;
+  padding-right: 8px;
+  height: 24px;
+}
+
 .login-container__register {
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  width: 150px;
-  height: 50px;
-  background-color: #ffa64d;
-  margin-bottom: 16px;
-  margin-right: 8px;
-  font-family: Avenir Regular;
-  font-size: 16px;
-  line-height: 20px;
-  border-radius: 50px;
-  border: none;
-}
-
-.login-container__register:focus {
-  outline: none;
-}
-
-.login-container__register:hover {
-  cursor: pointer;
+  margin: 0 auto;
+  padding-top: 48px;
+  font-family: Avenir Demi Bold;
+  font-size: 24px;
+  line-height: 36px;
 }
 
 .profile {
