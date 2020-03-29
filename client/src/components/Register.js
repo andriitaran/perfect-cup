@@ -8,7 +8,7 @@ class Register extends Component {
     event.preventDefault();
     axios({
       method: "post",
-      url: `/user/register`,
+      url: `http://localhost:5000/user/register`,
       data: {
         name: event.target.name.value,
         email: event.target.email.value,

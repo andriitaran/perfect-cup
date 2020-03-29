@@ -22,7 +22,7 @@ class Discover extends Component {
   componentDidMount() {
     axios({
       method: "get",
-      url: `/shops`,
+      url: `http://localhost:5000/shops`,
       headers: { "Access-Control-Allow-Origin": "*" }
     }).then(res => {
       console.log(res.data);

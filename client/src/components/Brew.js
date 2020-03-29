@@ -13,7 +13,7 @@ export default class Brew extends Component {
   componentDidMount() {
     axios({
       method: "get",
-      url: `/data`,
+      url: `http://localhost:5000/data`,
       headers: {
         "auth-token": `${sessionStorage.getItem("authToken")}`,
         "Access-Control-Allow-Origin": "*"

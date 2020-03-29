@@ -151,7 +151,7 @@ export default class PourOver extends Component {
     };
     axios({
       method: "post",
-      url: `/data`,
+      url: `http://localhost:5000/data`,
       headers: {
         "auth-token": `${sessionStorage.getItem("authToken")}`,
         "Access-Control-Allow-Origin": "*"
