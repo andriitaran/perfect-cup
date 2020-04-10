@@ -15,13 +15,21 @@ Currently the app is setup for iPhone 8+ viewport(414x736 px), but could be easi
 ## APP ROUTES :
 
 / - initial loading screen with video and logo
+
 /register - allows user to register an account
+
 /login - allows user to login into existing account
+
 /prepare - allows user to choose between brewing methods
+
 /prepare/pourover - allows user to start brewing via pour over
+
 /prepare/frenchpress - allows user to start brewing via french press
+
 /profile - user profile with brew data
+
 /profile/brews/:id - loads specific brew data
+
 /discover - curated selection of specialty coffee shops in Vancouver
 
 ## GENERAL FUNCTIONALITY :
