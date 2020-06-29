@@ -8,6 +8,8 @@ Currently, the app allows you to brew coffee via pour-over or french press - 2 o
 
 What separates PERFECT CUP from similar apps is that it will also provide recommendations based on user input to adjust the recipe to fit the user’s taste profile at the end of the brewing process.
 
+https://www.loom.com/share/82406f12f73d44cc9f2b488128b5ce47
+
 ## TECH STACK :
 
 - React as client
