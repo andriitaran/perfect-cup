@@ -9,7 +9,7 @@ import {
 import axios from "axios";
 import Logo from "../../assets/icons/discover.svg";
 import "./discover.styles.scss"
-// import mapStyles from "../MapStyles"
+// import mapStyles from "../MapStyles" -debugging
 
 const {REACT_APP_BACKEND_URL, REACT_APP_PORT, REACT_APP_GMAPS_API_KEY} = process.env;
 
@@ -49,7 +49,7 @@ export default class Discover extends Component {
       <GoogleMap
         defaultZoom={14}
         defaultCenter={{ lat: 49.28273, lng: -123.120735 }}
-        // defaultOptions={{ styles: mapStyles }}
+        // defaultOptions={{ styles: mapStyles }} -debugging
       >
         {this.state.shops.map(shop => (
           <Marker
