@@ -1,0 +1,64 @@
+@import "../../styles/utility.scss";
+@import "../../styles/typography.scss";
+@import "../../styles/colors.scss";
+@import "../../styles/animations.scss";
+
+.brew {
+  color: $black;
+  animation: fade-slide-down 0.5s 0s ease-in-out forwards;
+  &-container {
+    background: $white;
+    margin: 0 auto;
+    padding: 36px 24px 24px 24px;
+    width: 414px;
+    height: 676px;
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    &__header {
+      @include header(36px, 36px);
+      width: 100%;
+    }
+    &__circle {
+      margin-top: 24px;
+      margin-bottom: 48px;
+      min-height: 200px;
+      min-width: 200px;
+      background: lightgrey;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &--img {
+
+        &-frenchpress {
+          height: 160px;
+          padding-left: 16px;
+          padding-bottom: 8px;
+        }
+        &-pourover {
+          height: 140px;
+        }
+      }
+    }
+    &__brewinfo {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      &--date,
+      &--time,
+      &--method,
+      &--ratio,
+      &--grind,
+      &--coffee,
+      &--water,
+      &--notes,
+      &--reccomendations {
+        @include text(16px, 26px);
+        margin-bottom: 8px;
+      }
+    }
+  }
+}

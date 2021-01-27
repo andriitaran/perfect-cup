@@ -1,0 +1,88 @@
+@import "../../styles/utility.scss";
+@import "../../styles/typography.scss";
+@import "../../styles/colors.scss";
+@import "../../styles/animations.scss";
+
+.login {
+  animation: fade-slide-down 0.5s 0s ease-in-out forwards;
+  &-container {
+    margin: 0 auto;
+    background: $white;
+    padding: 36px 24px 24px 24px;
+    width: 414px;
+    height: 736px;
+    display: flex;
+    flex-direction: column;
+    &__header {
+      @include header(36px, 40px);
+      width: 100%;
+      color: $black;
+    }
+    &__form {
+      color: $white;
+      display: flex;
+      flex-direction: column;
+      margin-top: 48px;
+      margin-bottom: 48px;
+      padding: 24px;
+      background: $black;
+      border-radius: 40px;
+      width: 366px;
+      &--name,
+      &--email,
+      &--password {
+        margin-bottom: 8px;
+        @include subheader(20px, 36px);
+        &-input {
+          @include text(16px, 20px);
+          color: $white;
+          background: $black;
+          width: 318px;
+          height: 36px;
+          border: none;
+          border-bottom: 1px solid$white;
+          margin-bottom: 16px;
+          padding-bottom: 0;
+          &:focus {
+            outline: none;
+          }
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+      &--error {
+        @include text(16px, 20px);
+        color: red !important;
+        height: 20px;
+      }
+      &--login {
+        width: 100%;
+        height: 50px;
+        background-color: #ffa64d;
+        margin-top: 24px;
+        margin-bottom: 16px;
+        margin-right: 8px;
+        @include subheader(20px, 36px);
+        border-radius: 50px;
+        border: none;
+        &:focus {
+          outline: none;
+        }
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+    &__cup {
+      padding-left: 48px;
+      padding-right: 8px;
+      height: 24px;
+    }
+    &__register {
+      margin: 0 auto;
+      padding-top: 48px;
+      @include subheader(24px, 36px);
+    }
+  }
+}

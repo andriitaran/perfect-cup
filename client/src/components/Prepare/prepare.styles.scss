@@ -1,0 +1,52 @@
+@import "../../styles/utility.scss";
+@import "../../styles/typography.scss";
+@import "../../styles/colors.scss";
+@import "../../styles/animations.scss";
+
+.prepare {
+  animation: fade-slide-down 0.5s 0s ease-in-out forwards;
+  &-container {
+    background: $white;
+    margin: 0 auto;
+    padding: 36px 24px 24px 24px;
+    width: 414px;
+    height: 676px;
+    justify-content: center;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    &__header {
+      @include header(36px, 40px);
+      width: 100%;
+      color: $black;
+    }
+    &__pourover,
+    &__frenchpress {
+      width: 183px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      &--text {
+        margin-top: 24px;
+        @include subheader(24px, 24px);
+        color: $black;
+      }
+      &--img {
+        height: 140px;
+      }
+    }
+  }
+}
+
+@keyframes fade-slide-down {
+  0% {
+    opacity: 0;
+    transform: translateX(-2rem);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}

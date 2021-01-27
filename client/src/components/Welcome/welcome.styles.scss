@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css?family=Permanent+Marker");
+@import "../../styles/utility.scss";
+@import "../../styles/typography.scss";
+@import "../../styles/colors.scss";
+@import "../../styles/animations.scss";
+
+.welcome {
+  animation: fadeout 4s;
+  animation-delay: 11s;
+  &-container {
+    margin: 0 auto;
+    // width: 414px;
+    // height: 676px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    &__video {
+      animation: fadein 5s;
+      object-fit: cover;
+      width: 414px;
+      height: 736px;
+    }
+    &__logo {
+      animation: fadein 4s;
+      top: 100px;
+      height: 120px;
+      position: absolute;
+      -webkit-filter: drop-shadow(5px 5px 5px #222);
+      filter: drop-shadow(5px 5px 5px #222);
+    }
+    &__header {
+      @include header(64px, 40px);
+      color: $white;
+      top: 250px;
+      animation: fadein 4s;
+      color: white;
+
+      position: absolute;
+      // text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.7);
+      -webkit-filter: drop-shadow(5px 5px 5px #222);
+      filter: drop-shadow(5px 5px 5px #222);
+    }
+  }
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

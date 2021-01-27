@@ -1,0 +1,63 @@
+@import "../../styles/utility.scss";
+@import "../../styles/typography.scss";
+@import "../../styles/colors.scss";
+@import "../../styles/animations.scss";
+
+.navigation {
+  .active span {
+    color: orange;
+  }
+
+  &__container {
+    margin: 0 auto;
+    width: 414px;
+    height: 60px;
+    background: $black;
+  }
+  &__buttons {
+    display: flex;
+    &--prepare,
+    &--profile,
+    &--discover {
+      width: 138px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      &-img {
+        margin-top: 10px;
+        height: 24px;
+        width: 24px;
+      }
+
+      & span {
+        @include text(16px, 20px);
+        color: #d3d3d3;
+      }
+    }
+    &--prepare-img {
+      background: url(../../assets/icons/prepare_grey.svg);
+    }
+
+    &--profile-img {
+      background: url(../../assets/icons/profile_grey.svg);
+    }
+
+    &--discover-img {
+      background: url(../../assets/icons/discover_grey.svg);
+    }
+  }
+}
+
+.active .navigation__buttons--prepare-img {
+  background: url(../../assets/icons/prepare_orange.svg);
+}
+
+.active .navigation__buttons--profile-img {
+  background: url(../../assets/icons/profile_orange.svg);
+}
+
+.active .navigation__buttons--discover-img {
+  background: url(../../assets/icons/discover_orange.svg);
+}

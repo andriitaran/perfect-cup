@@ -1,0 +1,94 @@
+@import "../../styles/utility.scss";
+@import "../../styles/typography.scss";
+@import "../../styles/colors.scss";
+@import "../../styles/animations.scss";
+
+.profile {
+  animation: fade-slide-down 0.5s 0s ease-in-out forwards;
+  color: $black;
+  &-container {
+    background: $white;
+    margin: 0 auto;
+    padding: 36px 24px 0px 24px;
+    width: 414px;
+    height: 676px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    &__circle {
+      margin: 0 auto;
+      min-height: 200px;
+      min-width: 200px;
+      background: #d3d3d3;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &--img {
+        height: 140px;
+        padding-top: 10px;
+      }
+    }
+
+    &__header {
+      @include header(36px, 36px);
+      width: 100%;
+      margin-bottom: 24px;
+    }
+    &__brews {
+      @include subheader(20px, 36px);
+      margin-top: 24px;
+      margin-bottom: 40px;
+      width: 100%;
+    }
+
+    &__mybrews {
+      @include subheader(20px, 36px);
+      margin-top: 24px;
+      margin-bottom: 24px;
+      width: 380px;
+      overflow: scroll;
+      position: aboslute;
+    }
+    &__placeholders {
+      display: flex;
+      width: 100%;
+      margin-bottom: 20px;
+      & span {
+        justify-content: center;
+        width: 122px;
+        @include text(16px, 20px);
+      }
+      &--time {
+        padding-left: 40px;
+      }
+      &--method {
+        padding-left: 50px;
+      }
+    }
+    &__brew {
+      width: 100%;
+      display: flex;
+      margin-bottom: 20px;
+
+      &--date {
+        width: 164px;
+        @include text(16px, 20px);
+        height: 20px;
+      }
+      &--time {
+        width: 80px;
+        @include text(16px, 20px);
+        height: 20px;
+      }
+      &--method {
+        display: flex;
+        height: 20px;
+        padding-left: 68px;
+      }
+    }
+  }
+}
