@@ -3,7 +3,7 @@ import axios from "axios";
 import moment from "moment";
 import PourOverLogo from "../../assets/images/498476-coffee/svg/010-coffee-pot-1.svg";
 import FrenchPressLogo from "../../assets/images/498476-coffee/svg/023-kettle.svg";
-import "./brew.styles.scss"
+import "./index.scss"
 
 const {REACT_APP_BACKEND_URL, REACT_APP_PORT} = process.env;
 

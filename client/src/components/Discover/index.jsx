@@ -8,12 +8,12 @@ import {
 } from "react-google-maps";
 import axios from "axios";
 import Logo from "../../assets/icons/discover.svg";
-import "./discover.styles.scss"
-// import mapStyles from "../MapStyles" -debugging
+import "./index.scss"
+import { mapStyles } from "../MapStyles/mapStyles" 
 
 const {REACT_APP_BACKEND_URL, REACT_APP_PORT, REACT_APP_GMAPS_API_KEY} = process.env;
 
-export default class Discover extends Component {
+export class Discover extends Component {
   
   state = {
     shops: [],
@@ -27,7 +27,6 @@ export default class Discover extends Component {
       url: `${REACT_APP_BACKEND_URL}:${REACT_APP_PORT}/shops`,
       headers: { "Access-Control-Allow-Origin": "*" }
     }).then(res => {
-      console.log(res.data);
       this.setState({
         shops: res.data,
         loading: true
@@ -36,8 +35,8 @@ export default class Discover extends Component {
   }
 
   titleCase = str => {
-    var splitStr = str.toLowerCase().split(" ");
-    for (var i = 0; i < splitStr.length; i++) {
+    let splitStr = str.toLowerCase().split(" ");
+    for (let i = 0; i < splitStr.length; i++) {
       splitStr[i] =
         splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
     }
@@ -49,7 +48,7 @@ export default class Discover extends Component {
       <GoogleMap
         defaultZoom={14}
         defaultCenter={{ lat: 49.28273, lng: -123.120735 }}
-        // defaultOptions={{ styles: mapStyles }} -debugging
+        defaultOptions={{ styles: mapStyles }}
       >
         {this.state.shops.map(shop => (
           <Marker

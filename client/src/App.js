@@ -3,11 +3,11 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Navigation } from "./components/Navigation/navigation.component";
 import { Welcome } from "./components/Welcome/welcome.component";
 import { Profile } from "./components/Profile/profile.component";
-import { Brew } from "./components/Brew/brew.component";
+import { Brew } from "./components/Brew";
 import { Prepare } from "./components/Prepare/prepare.component";
 import PourOver from "./components/PourOver/pourover.component";
 import FrenchPress  from "./components/FrenchPress/frenchpress.component";
-import Discover from "./components/Discover/discover.component";
+import { Discover } from "./components/Discover";
 import { Register } from "./components/Register/register.component";
 import { Login } from "./components/Login/login.component";
 

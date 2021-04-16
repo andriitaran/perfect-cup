@@ -7,8 +7,8 @@ const verify = require("./verifyToken");
 
 //BREW DATA ROUTE
 router.get("/", verify, async (req, res) => {
-  const data = await Data.find({ userid: req.user._id })
   try {
+    const data = await Data.find({ userid: req.user._id });
     return res.status(200).json(data);
   } catch (err) {
     res.status(500).json({

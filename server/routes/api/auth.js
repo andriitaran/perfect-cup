@@ -13,19 +13,14 @@ const createUser = async (body) => {
 
 router.post("/register", async (req, res) => {
   const { error } = registerValidation(req.body);
-  
   if (error) {
     res.status(400).send(error.details[0].message);
   }
-
   const emailExists = await User.findOne({ email: req.body.email });
-
   if (emailExists) {
     res.status(400).send("Email already exists");
   }
-  
   const user = await createUser(req.body);
-
   try {
     await user.save();
     res.send({ user: user._id });
@@ -34,27 +29,20 @@ router.post("/register", async (req, res) => {
   }
 });
 
-//LOGIN
 router.post("/login", async (req, res) => {
-  // VALIDATE USER DATA
   const { error } = loginValidation(req.body);
   if (error) return res.status(400).send(error.details[0].message);
-  // CHECK IF USER IS IN THE DATABASE
   const user = await User.findOne({ email: req.body.email });
   if (!user) return res.status(400).send("Email doesn't exists");
-  // CHECK IF PASSWORD IS CORRECT
   const validPass = await bcrypt.compare(req.body.password, user.password);
   if (!validPass) {
      res.status(400).send("Invalid password");
   }
-  //CREATE AND ASSIGN TOKEN, SEND DATA TO FRONT-END
   const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET);
   res.send({
     user : user.name,
     token : token
   })
 });
-
-
 
 module.exports = router;
