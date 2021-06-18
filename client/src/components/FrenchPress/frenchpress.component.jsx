@@ -15,9 +15,15 @@ import "../../styles/brewing.scss"
 
 const {REACT_APP_BACKEND_URL, REACT_APP_PORT} = process.env;
 
+const cupSize = {
+  small : 220,
+  medium : 300,
+  large : 350
+}
+
 export default class FrenchPress extends Component {
     state = {
-      waterAmount: 220, // choose 220ml, 300ml or 350ml
+      waterAmount: cupSize.small, // choose 220ml, 300ml or 350ml
       ratio: 17, // choose 1:16, 1:17 or 1:18
       coffeeActive: false,
       waterActive: false,
@@ -35,7 +41,7 @@ export default class FrenchPress extends Component {
   
   setSteps = () => {
 
-    if (this.myTimeout != null) {
+    if (this.myTimeout) {
       clearTimeout(this.myTimeout);
     }
 
@@ -167,10 +173,8 @@ export default class FrenchPress extends Component {
         },
         data
       });
-      console.log("brew data was uploaded");
       window.location.href = "/profile";
     } catch (err) {
-      console.log(err)
     }
   };
 
@@ -319,7 +323,7 @@ export default class FrenchPress extends Component {
                       value={this.state.waterAmount}
                       onChange={this.handleChangeWaterAmount}
                     >
-                      <MenuItem value={220}>220g</MenuItem>
+                      <MenuItem value={cupSize.small}>220g</MenuItem>
                       <MenuItem value={300}>300g</MenuItem>
                       <MenuItem value={350}>350g</MenuItem>
                     </Select>

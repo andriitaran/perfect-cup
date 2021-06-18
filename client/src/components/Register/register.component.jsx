@@ -34,9 +34,7 @@ export const Register = () => {
           <span className="register-container__header">Sign Up</span>
           <form
             className="register-container__form"
-            action="submit"
             onSubmit={handleRegister}
-            
           >
             <label className="register-container__form--name" for="name">
               Name

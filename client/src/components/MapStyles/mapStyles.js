@@ -1,4 +1,4 @@
-export default [
+export const mapStyles = [
   {
     featureType: "water",
     elementType: "geometry",

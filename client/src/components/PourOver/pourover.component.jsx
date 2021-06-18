@@ -160,10 +160,8 @@ export default class PourOver extends Component {
         },
         data
       });
-      console.log("brew data was uploaded");
       window.location.href = "/profile";
     } catch (err) {
-      console.log(err)
     }
   };
 

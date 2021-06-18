@@ -6,6 +6,10 @@ import "./login.styles.scss"
 
 const {REACT_APP_BACKEND_URL, REACT_APP_PORT} = process.env;
 
+const makeRequest = (method, path, body) => {
+
+}
+
 export const Login = () => {
 
   const [error, setError] = useState("");
@@ -35,7 +39,6 @@ export const Login = () => {
           <span className="login-container__header">Login</span>
           <form
             className="login-container__form"
-            action="submit"
             onSubmit={handleLogin}
           >
             <label className="login-container__form--email" for="email">
